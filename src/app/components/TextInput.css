@@ -1,0 +1,15 @@
+.text_input > input {
+  background-color: transparent;
+  border: 1px solid #ffc067;
+  color: #ffc067;
+  outline: none;
+  padding: .5rem;
+  &::placeholder {
+    color: #ffc06755;
+  }
+}
+
+.text_input > input:-webkit-autofill,
+.text_input > input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s !important;
+}
