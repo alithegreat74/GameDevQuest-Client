@@ -1,5 +1,5 @@
 .text_input > label {
-    font-size: 1.3em;
+  font-size: 1.3em;
 }
 
 .text_input > input {
@@ -7,24 +7,36 @@
   border: 1px solid #ffc067;
   color: #ffc067;
   outline: none;
-  padding: .5rem;
-  box-shadow: 0 0 0 0 #B451FF;
-  transition: all 1s;
+  padding: 0.5rem;
+  box-shadow: 0 0 0 0 #b451ff;
+  transition: all 2s;
+  height: 2.2rem;
+  box-sizing: border-box;
   &::placeholder {
     color: #ffc06777;
     transition: 1s;
   }
   &:focus {
-    box-shadow: 0 0 8px 2px #B451FF;
-    border: 1px solid #B451FF;
-    color: #B451FF;
+    box-shadow: 0 0 8px 2px #b451ff;
+    border: 1px solid #b451ff;
+    /* color: #b451ff; */
   }
-  &:focus::placeholder {
-    color: #B451FF77;
-  }
+  /* &:focus::placeholder {
+    color: #b451ff77;
+  } */
 }
 
 .text_input > input:-webkit-autofill,
 .text_input > input:-webkit-autofill:focus {
   transition: background-color 0s 600000s, color 0s 600000s !important;
+}
+
+.text_input > button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: none;
+  height: 2.2rem;
+  background-color: transparent;
+  outline: none;
 }
