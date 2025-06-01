@@ -1,11 +1,26 @@
+.text_input > label {
+    font-size: 1.3em;
+}
+
 .text_input > input {
-  background-color: transparent;
+  background-color: #0007;
   border: 1px solid #ffc067;
   color: #ffc067;
   outline: none;
   padding: .5rem;
+  box-shadow: 0 0 0 0 #B451FF;
+  transition: all 1s;
   &::placeholder {
-    color: #ffc06755;
+    color: #ffc06777;
+    transition: 1s;
+  }
+  &:focus {
+    box-shadow: 0 0 8px 2px #B451FF;
+    border: 1px solid #B451FF;
+    color: #B451FF;
+  }
+  &:focus::placeholder {
+    color: #B451FF77;
   }
 }
 

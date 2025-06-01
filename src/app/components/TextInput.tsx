@@ -1,11 +1,26 @@
 import React from "react";
-import "./TextInput.css"
+import "./TextInput.css";
 
-const TextInput = () => {
+interface props {
+  label: string;
+  placeholder: string;
+  type: string;
+  inputName: string;
+}
+
+const TextInput = ({label, placeholder, type, inputName}: props) => {
   return (
     <p className="text_input flex flex_column gap_8">
-      <label className="text_gradient" htmlFor="username">Adveturer Name</label>
-      <input className="merri" name="username" type="text" placeholder="Username or Email..." />
+      <label className="text_gradient" htmlFor={inputName}>
+        {label}
+      </label>
+      <input
+        className="merri"
+        id={inputName}
+        name={inputName}
+        type={type}
+        placeholder={placeholder}
+      />
     </p>
   );
 };

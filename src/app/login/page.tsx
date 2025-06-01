@@ -18,7 +18,8 @@ const Login = () => {
       <main id="login_page">
         <h2 className="text_gradient">Only The Worthy May Enter</h2>
         <form action="/">
-          <TextInput></TextInput>
+          <TextInput label={"Adventurer Name"} placeholder={"Username or Email..."} type={"text"} inputName={"login_username"}></TextInput>
+          <TextInput label={"Secret Sigil"} placeholder={"Password..."} type={"password"} inputName={"login_password"}></TextInput>
         </form>
       </main>
     </>
