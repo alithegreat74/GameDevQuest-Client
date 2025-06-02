@@ -18,7 +18,7 @@ const Login = () => {
       </header>
       <main id="login_page">
         <h2 className="text_gradient">Only The Worthy May Enter</h2>
-        <form action="">
+        <form className="flex flex_column" action="">
           <TextInput
             label={"Adventurer Name"}
             placeholder={"Username or Email..."}
@@ -49,6 +49,15 @@ const Login = () => {
             </a>
           </p>
           <SeparatorLine text="or" />
+          <a className="secondary_btn " href="#">
+            <Image
+              src={"/google.svg"}
+              alt={"google"}
+              width={24}
+              height={24}
+            ></Image>
+            Login with Google
+          </a>
         </form>
       </main>
     </>

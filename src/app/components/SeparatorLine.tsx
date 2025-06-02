@@ -2,10 +2,10 @@ import React from "react";
 import "./SeparatorLine.css";
 
 interface props {
-    text: string;
+  text: string;
 }
 
-const SeparatorLine = ({text}: props) => {
+const SeparatorLine = ({ text }: props) => {
   return (
     <div className="separator_line flex_center">
       <span className="separator_line_gradient left"></span>

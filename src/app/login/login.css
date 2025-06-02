@@ -1,4 +1,6 @@
 body {
+  display: flex;
+  flex-direction: column;
   padding: 1rem 2rem;
   background: linear-gradient(
       90deg,
@@ -17,4 +19,24 @@ h1 {
   font-size: 1em;
   font-weight: 400;
   margin: 0 0.5rem;
+}
+
+#login_page {
+  max-width: 600px;
+  height: 100%;
+  padding-inline: clamp(1rem, 3vw, 3rem);
+  padding-block: clamp(1rem, 3vw, 3rem);
+}
+
+h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-block: 3rem;
+}
+
+form {
+  gap: 2rem;
+  & > p {
+    margin-block: 0;
+  }
 }
