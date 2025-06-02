@@ -3,6 +3,7 @@ import Image from "next/image";
 import "./login.css";
 
 import TextInput from "../components/TextInput";
+import SeparatorLine from "../components/SeparatorLine";
 
 const Login = () => {
   return (
@@ -23,13 +24,13 @@ const Login = () => {
             placeholder={"Username or Email..."}
             type={"text"}
             inputName={"login_username"}
-          ></TextInput>
+          />
           <TextInput
             label={"Secret Sigil"}
             placeholder={"Password..."}
             type={"password"}
             inputName={"login_password"}
-          ></TextInput>
+          />
           <p className="text_gradient merri font_14">
             Forgot your password?
             <a className="purple_link" href="#">
@@ -47,9 +48,7 @@ const Login = () => {
               SignUp
             </a>
           </p>
-          <div className="separator_line flex_center">
-            <span className="line_gradient"></span>
-          </div>
+          <SeparatorLine text="or" />
         </form>
       </main>
     </>

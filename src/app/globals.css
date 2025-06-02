@@ -21,6 +21,10 @@ label {
   font-family: "mediaval";
 }
 
+button, input[type = "submit"] {
+  cursor: pointer;
+}
+
 .mediaval {
   font-family: "mediaval";
 }
@@ -135,18 +139,4 @@ label {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.separator_line {
-  width: 100%;
-  & > .line_gradient {
-    height: 2px;
-    width: 100%;
-  }
-  & > .line_gradient.right {
-    background-image: linear-gradient(90deg, #ffc067 0%, #ffc06700 100%);
-  }
-  & > .line_gradient.left {
-    background-image: linear-gradient(0deg, #ffc067 0%, #ffc06700 100%);
-  }
 }
