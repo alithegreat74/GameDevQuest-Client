@@ -6,7 +6,7 @@ import "./login.css";
 import TextInput from "../components/TextInput";
 import SeparatorLine from "../components/SeparatorLine";
 
-const Login = () => {
+const Signup = () => {
   return (
     <>
       <header>
@@ -14,23 +14,29 @@ const Login = () => {
           <Image src="/logo.svg" alt="logo" width={50} height={52} />
           <span className="camel">G</span>ame<span className="camel">D</span>
           ev
-          <span className="camel">Q</span>uest - <h1>Login</h1>
+          <span className="camel">Q</span>uest - <h1>Signup</h1>
         </div>
       </header>
       <main id="login_page">
-        <h2 className="text_gradient">Only The Worthy May Enter</h2>
+        <h2 className="text_gradient">Every Hero Has a Beginning. <br /> <span>Let The Scrolls Record Yours.</span></h2>
         <form className="flex flex_column" action="">
           <TextInput
-            label={"Adventurer Name"}
-            placeholder={"Username or Email..."}
+            label={"Realm of Contact"}
+            placeholder={"Enter your Email..."}
             type={"text"}
-            inputName={"login_username"}
+            inputName={"signup_username"}
           />
           <TextInput
-            label={"Secret Sigil"}
+            label={"Create a Sigil"}
             placeholder={"Password..."}
             type={"password"}
-            inputName={"login_password"}
+            inputName={"signup_password"}
+          />
+          <TextInput
+            label={"Repeat the Sigil"}
+            placeholder={"Confirm Password..."}
+            type={"password"}
+            inputName={"signup_confirm_password"}
           />
           <p className="text_gradient merri font_14">
             Forgot your password?
@@ -44,9 +50,9 @@ const Login = () => {
             value={"ENTER THE GUILD"}
           />
           <p className="text_gradient merri font_14 text_center">
-            Are you a new adventurer?
+            Already a member of the guild?
             <a className="purple_link" href="#">
-              SignUp
+              Login
             </a>
           </p>
           <SeparatorLine text="or" />
@@ -65,4 +71,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

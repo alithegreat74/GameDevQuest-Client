@@ -6,7 +6,6 @@ body {
       #00000077 80%,
       #00000000 100%
     ),
-    url(../../../public/LoginBG.png) center no-repeat #000;
-  /* background: linear-gradient(90deg, #000000E5 40%, #000000CC 60%, #0000007F 80%, #00000000 100%); */
+    url(../../../public/SignupBG.png) center no-repeat #000;
   background-size: cover;
 }
