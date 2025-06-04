@@ -1,0 +1,11 @@
+body {
+  background: linear-gradient(
+      90deg,
+      #000000ee 40%,
+      #000000cc 60%,
+      #00000077 80%,
+      #00000000 100%
+    ),
+    url(../../../public/SignupBG.png) center no-repeat #000;
+  background-size: cover;
+}
