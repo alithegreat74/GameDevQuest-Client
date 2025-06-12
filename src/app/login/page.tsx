@@ -45,7 +45,7 @@ const Login = () => {
           />
           <p className="text_gradient merri font_14 text_center">
             Are you a new adventurer?
-            <a className="purple_link" href="#">
+            <a className="purple_link" href="/signup">
               SignUp
             </a>
           </p>

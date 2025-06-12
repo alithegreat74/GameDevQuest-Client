@@ -51,7 +51,7 @@ const Signup = () => {
           />
           <p className="text_gradient merri font_14 text_center">
             Already a member of the guild?
-            <a className="purple_link" href="#">
+            <a className="purple_link" href="/login">
               Login
             </a>
           </p>
