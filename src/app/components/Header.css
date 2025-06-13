@@ -1,0 +1,21 @@
+#header {
+  padding: 2rem;
+}
+
+#header_profile > div {
+  & > * {
+    color: #ffc067;
+  }
+  & > p {
+    margin-block: 0;
+  }
+  & > span {
+    opacity: .8;
+    font-size: 14px;
+  }
+}
+
+#header_profile_image {
+  background-color: #fff;
+  border-radius: 50%;
+}

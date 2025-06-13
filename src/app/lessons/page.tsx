@@ -1,12 +1,13 @@
 import React from "react";
 import Menu from "../components/svgs/Menu";
+import Header from "../components/Header";
+import SeparatorLine from "../components/SeparatorLine";
 
 const Lessons = () => {
   return (
     <>
-      <header>
-        <Menu />
-      </header>
+      <Header />
+      <SeparatorLine text={"LESSONS"} />
     </>
   );
 };

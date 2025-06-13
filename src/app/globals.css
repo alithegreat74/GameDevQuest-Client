@@ -26,6 +26,10 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
 .mediaval {
   font-family: "mediaval";
 }
@@ -61,6 +65,12 @@ input[type="submit"] {
 .flex_center {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.flex_between {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
