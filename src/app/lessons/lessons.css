@@ -1,0 +1,27 @@
+main {
+  padding-inline: 2rem;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+#lessons_tabs {
+  margin-block: 2rem;
+  & > a {
+    color: #ffc067;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    transition: 0.5s;
+    border-bottom: 1px solid transparent;
+  }
+  & > a.active {
+    border-bottom: 1px solid #ffc067;
+  }
+  & > a:not(.active):hover {
+    color: #b451ff;
+    border-bottom: 1px solid #b451ff;
+    filter: drop-shadow(0 0 5px #b451ff);
+    /* box-shadow: inset 0 0 2px #b451ff; */
+  }
+}

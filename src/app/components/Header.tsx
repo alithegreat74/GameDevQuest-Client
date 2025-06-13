@@ -13,7 +13,7 @@ const Lessons = () => {
           <Image id="header_profile_image" src={"/theMan.png"} alt="profile" width={48} height={48}/>
           <div className="flex flex_column gap_8 merri">
             <p>Man on the Moon</p>
-            <span>Developer</span>
+            <span className="font_14">Developer</span>
           </div>
           <Image src={"/dropDown.svg"} alt="drop" width={20} height={7} />
         </a>
