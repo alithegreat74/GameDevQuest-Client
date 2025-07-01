@@ -64,6 +64,37 @@ const Lessons = () => {
                 eveniet iste, voluptas sed laboriosam alias exercitationem!
                 Neque cum facere mollitia nemo, ducimus natus.
               </p>
+              <div className="lesson_bottom flex_between">
+                <div className="quest_tags flex gap_16">
+                  <span className="quest_tag">
+                    <Image
+                      src={"/quest_level.svg"}
+                      alt={"required reward"}
+                      width={20}
+                      height={20}
+                    />
+                    Level 01
+                  </span>
+                  <span className="quest_tag">
+                    <Image
+                      src={"/quest_reward.svg"}
+                      alt={"reward"}
+                      width={20}
+                      height={20}
+                    />
+                    48xp
+                  </span>
+                </div>
+                <button className="main_btn">
+                  <Image
+                    src={"/stabbed-note.svg"}
+                    alt={""}
+                    width={20}
+                    height={20}
+                  />
+                  Start Quest
+                </button>
+              </div>
             </div>
           </div>
         </section>

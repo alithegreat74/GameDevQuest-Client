@@ -55,9 +55,9 @@ h1 {
     /* background-color: #fff; */
     accent-color: green;
   }
-  & progress::-webkit-progress-bar {
-    /* background-color: #fff; */
-  }
+  /* & progress::-webkit-progress-bar {
+    background-color: #fff;
+  } */
   & progress::-webkit-progress-value {
     background-color: green;
   }
@@ -73,4 +73,13 @@ h1 {
   -webkit-line-clamp: 2;
   line-clamp: 2;
   align-self: stretch;
+}
+
+.quest_tags .quest_tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 5px;
+  font-size: 14px;
 }

@@ -31,7 +31,8 @@ label {
   font-family: "mediaval";
 }
 
-p, span {
+p,
+span {
   font-family: "merriweather";
 }
 
@@ -107,6 +108,14 @@ p, span {
   position: absolute;
 }
 
+.w-fill {
+  width: 100%;
+}
+
+.w-fit {
+  width: fit-content;
+}
+
 .purple_link {
   -webkit-text-fill-color: #b451ff;
   color: #b451ff;
@@ -119,17 +128,23 @@ p, span {
 }
 
 .main_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "mediaval";
   background: radial-gradient(50% 50% at 50% 50%, #b451ff 0%, #55237b 100%);
   color: #ffc067;
   border: none;
-  width: 100%;
   height: 2.5rem;
   letter-spacing: 4px;
   transition: 1s;
   font-weight: bold;
-  &:hover {
+  padding-inline: 1rem;
+  &.hover:hover {
     letter-spacing: 6px;
+  }
+  & > img {
+    margin-right: 0.5rem;
   }
 }
 
@@ -143,14 +158,14 @@ p, span {
   color: #fff;
   border: 1px solid #fff;
   box-shadow: inset 0 0 2px #fff;
-  width: 100%;
   height: 2.5rem;
   transition: 1s;
-  &:hover {
+  padding-inline: 1rem;
+  &.hover:hover {
     box-shadow: inset 0 0 8px #fff;
   }
   & > img {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
 }
 
@@ -181,7 +196,7 @@ p, span {
 }
 
 svg.pink_shadow {
-  transition: .5s;
+  transition: 0.5s;
 }
 
 svg.pink_shadow:hover {
