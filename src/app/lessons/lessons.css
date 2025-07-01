@@ -20,8 +20,57 @@ h1 {
   }
   & > a:not(.active):hover {
     color: #b451ff;
-    border-bottom: 1px solid #b451ff;
+    /* border-bottom: 1px solid #b451ff; */
     filter: drop-shadow(0 0 5px #b451ff);
-    /* box-shadow: inset 0 0 2px #b451ff; */
   }
+}
+
+.lesson_card {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  & > img {
+    aspect-ratio: 3/2;
+  }
+}
+
+.lesson_tags .lesson_tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 5px;
+  border: 1px solid #ffc067;
+  font-size: 14px;
+}
+
+.lesson_progress {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  & progress {
+    block-size: 0.5rem;
+    inline-size: 3rem;
+    /* background-color: #fff; */
+    accent-color: green;
+  }
+  & progress::-webkit-progress-bar {
+    /* background-color: #fff; */
+  }
+  & progress::-webkit-progress-value {
+    background-color: green;
+  }
+  & progress::-moz-progress-bar {
+    background-color: green;
+  }
+}
+
+.lesson_card > .lesson_details > p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  align-self: stretch;
 }

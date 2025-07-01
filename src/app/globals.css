@@ -31,7 +31,7 @@ label {
   font-family: "mediaval";
 }
 
-p {
+p, span {
   font-family: "merriweather";
 }
 
