@@ -92,6 +92,10 @@ span {
   justify-content: space-between;
 }
 
+.align_end {
+  align-items: flex-end;
+}
+
 .gap_8 {
   gap: 8px;
 }
