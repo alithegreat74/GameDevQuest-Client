@@ -33,7 +33,7 @@ const Lessons = () => {
               width={300}
               height={200}
             />
-            <div className="lesson_details">
+            <div className="lesson_details flex flex_column justify_between">
               <div className="lesson_tags flex gap_16">
                 <span className="lesson_tag">
                   <Image
