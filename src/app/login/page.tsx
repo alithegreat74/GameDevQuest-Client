@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import "../style/LoginSignup.css";
 import "./login.css";
@@ -14,7 +14,7 @@ const Login = () => {
   //TODO: we need a genuine wait screen for sending requests
   const submit=(e: React.FormEvent)=>{
     e.preventDefault();
-    axios.post(`${API_URL}/login`,{
+    axios.post(`${API_URL()}/login`,{
       Username:usernameInputText,
       Password:passwordInputText
     }).then((response)=>{
