@@ -1,4 +1,5 @@
-import React from "react";
+'use client';
+import React, { useState } from "react";
 import Image from "next/image";
 import "../style/LoginSignup.css";
 import "./login.css";
@@ -7,6 +8,12 @@ import TextInput from "../components/TextInput";
 import SeparatorLine from "../components/SeparatorLine";
 
 const Signup = () => {
+  const [usernameInputText, setUsernameInputText]=useState("");
+  const [passwordInputText, setPasswordInputText]=useState("");
+  const [confirmPasswordInputText, setConfirmPasswordInputText]=useState("");
+  const submit=(e:React.FormEvent)=>  {
+    e.preventDefault();
+  }
   return (
     <>
       <header>
@@ -25,18 +32,24 @@ const Signup = () => {
             placeholder={"Enter your Email..."}
             type={"text"}
             inputName={"signup_username"}
+            inputText={usernameInputText}
+            setInputText={setUsernameInputText}
           />
           <TextInput
             label={"Create a Sigil"}
             placeholder={"Password..."}
             type={"password"}
             inputName={"signup_password"}
+            inputText={passwordInputText}
+            setInputText={setPasswordInputText}
           />
           <TextInput
             label={"Repeat the Sigil"}
             placeholder={"Confirm Password..."}
             type={"password"}
             inputName={"signup_confirm_password"}
+            inputText={confirmPasswordInputText}
+            setInputText={setConfirmPasswordInputText}
           />
           <p className="text_gradient merri font_14">
             Forgot your password?

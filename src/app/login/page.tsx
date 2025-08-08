@@ -1,12 +1,28 @@
-import React from "react";
+'use client';
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import "../style/LoginSignup.css";
 import "./login.css";
-
 import TextInput from "../components/TextInput";
 import SeparatorLine from "../components/SeparatorLine";
+import axios from "axios";
+import { API_URL } from "../../../lib/config";
 
 const Login = () => {
+  const [usernameInputText, setUsernameInputText]=useState("");
+  const [passwordInputText, setPasswordInputText]=useState("");
+  //TODO: we need a genuine wait screen for sending requests
+  const submit=(e: React.FormEvent)=>{
+    e.preventDefault();
+    axios.post(`${API_URL}/login`,{
+      Username:usernameInputText,
+      Password:passwordInputText
+    }).then((response)=>{
+      console.log(response);
+    }).catch((error)=>{
+      console.log(error);
+    })
+  }
   return (
     <>
       <header>
@@ -19,18 +35,22 @@ const Login = () => {
       </header>
       <main id="login_page">
         <h2 className="text_gradient">Only The Worthy May Enter</h2>
-        <form className="flex flex_column" action="">
+        <form className="flex flex_column" action="" onSubmit={submit}>
           <TextInput
             label={"Adventurer Name"}
             placeholder={"Username or Email..."}
             type={"text"}
             inputName={"login_username"}
+            inputText={usernameInputText}
+            setInputText={setUsernameInputText}
           />
           <TextInput
             label={"Secret Sigil"}
             placeholder={"Password..."}
             type={"password"}
             inputName={"login_password"}
+            inputText={passwordInputText}
+            setInputText={setPasswordInputText}
           />
           <p className="text_gradient merri font_14">
             Forgot your password?
