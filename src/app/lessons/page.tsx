@@ -25,7 +25,8 @@ const Lessons = () => {
           <a href="#">In-Progress</a>
           <a href="#">Completed</a>
         </nav>
-        <section id="lessons_container" className="flex flex_column">
+        <section id="lessons_container" className="flex flex_column gap_16">
+          <LessonCard />
           <LessonCard />
         </section>
       </main>
