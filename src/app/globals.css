@@ -56,6 +56,10 @@ span {
   font-size: 16px;
 }
 
+.font_16_14 {
+  font-size: clamp(14px, 2vw, 16px);
+}
+
 .font_18 {
   font-size: 18px;
 }

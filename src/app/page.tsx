@@ -8,6 +8,7 @@ export default function Home() {
         <a href="/login">login</a>
         <a href="/signup">signup</a>
         <a href="/lessons">lessons</a>
+        <a href="/lesson">lesson</a>
       </nav>
     </main>
   );

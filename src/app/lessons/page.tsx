@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "../components/Header";
 import SeparatorLine from "../components/SeparatorLine";
+import LessonCard from "../components/LessonCard";
 
 import "./lessons.css";
-import LessonCard from "../components/LessonCard";
 
 const Lessons = () => {
   return (
@@ -13,7 +13,7 @@ const Lessons = () => {
       <main>
         <hgroup>
           <h1 className="text_gradient">Hall of Scrolls</h1>
-          <p className="font_18">
+          <p>
             Welcome, brave adventurer. Here lie the sacred scrolls, each holding
             secrets of game creation — ready to be mastered.
           </p>

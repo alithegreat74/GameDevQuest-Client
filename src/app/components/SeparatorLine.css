@@ -11,6 +11,7 @@
     background-image: linear-gradient(-90deg, #ffc067 0%, #ffc06700 100%);
   }
   & > .separator_line_word {
+    white-space: nowrap;
     font-family: "mediaval";
     color: #ffc067;
     margin: 0 0.5rem;
