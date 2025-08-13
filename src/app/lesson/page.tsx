@@ -25,6 +25,7 @@ const Lesson = () => {
               </span>
             </div>
             <hgroup>
+              <p className="eyebrow_text">Unity Development</p>
               <h1 className="text_gradient">Summoning Sprites with Unity</h1>
               <p className="font_16_14">
                 Learn to conjure animated sprites that dance through your world.
@@ -33,6 +34,36 @@ const Lesson = () => {
             </hgroup>
           </div>
         </section>
+        <article>
+          <h2>Overview</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto,
+            temporibus commodi alias vero est modi error hic, repellat accusamus
+            nesciunt magnam harum labore expedita at. Necessitatibus laboriosam
+            repellendus cupiditate perspiciatis! Lorem ipsum dolor sit amet
+            consectetur, adipisicing elit. Voluptatibus, earum illum explicabo
+            sed facilis architecto odit hic ducimus aliquid! Blanditiis
+            reprehenderit, laborum est sint
+          </p>
+          <aside className="note">
+            <span>Note:</span>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+              asperiores earum eum officia deserunt tempora impedit veritatis a
+              perferendis incidunt voluptatem corrupti fugit ex modi placeat,
+              itaque blanditiis sed. Eligendi.
+            </p>
+          </aside>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+            voluptate optio minus minima inventore quaerat assumenda pariatur,
+            explicabo voluptatibus quia fugit modi at sapiente debitis quae
+            recusandae. Maxime, odio! Pariatur. Corporis consequatur repudiandae
+            a molestiae dolor reiciendis eum architecto, sunt facilis rerum aut
+            sed assumenda voluptatum aperiam cum asperiores. Velit ducimus nobis
+            officia expedita magni itaque. Laudantium voluptas tenetur facilis.
+          </p>
+        </article>
       </main>
     </>
   );

@@ -16,6 +16,10 @@ body {
   color: #ffc067;
 }
 
+p:not(article p) {
+  line-height: 1.5em;
+}
+
 button,
 input[type="submit"] {
   cursor: pointer;
@@ -29,6 +33,7 @@ h1,
 h2,
 label {
   font-family: "mediaval";
+  letter-spacing: 2px;
 }
 
 p,
@@ -209,4 +214,8 @@ svg.pink_shadow {
 
 svg.pink_shadow:hover {
   filter: drop-shadow(0 0 5px #b451ff);
+}
+
+.eyebrow_text {
+  opacity: 80%;
 }
