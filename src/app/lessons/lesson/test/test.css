@@ -3,6 +3,9 @@ main {
   padding-inline: 2rem;
   width: clamp(200px, 100%, 1200px);
   margin-inline: auto;
+  & > * {
+    width: 100%;
+  }
 }
 
 h1 {
@@ -26,7 +29,7 @@ article p {
 #lesson_img {
   box-sizing: border-box;
   background: #000 no-repeat linear-gradient(0deg, #0009 0%, #0009 100%),
-    url(../../../public/Lesson.jpg) center;
+    url(../../../../../public/Lesson.jpg) center;
   background-size: cover;
   margin-inline: auto;
   padding: 1rem;
@@ -43,13 +46,20 @@ article p {
   font-size: 14px;
 }
 
-aside.note {
-  box-sizing: border-box;
-  border-left: 3px solid #080;
-  padding: 1rem 2rem 1rem;
-  background-image: linear-gradient(90deg, #0806 0%, #0800 100%);
-  & > span {
-    font-size: 18px;
-    font-weight: bold;
+progress {
+  block-size: clamp(.7rem, 2vw, 1rem);
+  inline-size: clamp(15rem, 27vw, 20rem);
+  border: 2px solid #ffc067;
+  border-radius: 1rem;
+  overflow: hidden;
+  accent-color: #55237b;
+  &::-webkit-progress-bar {
+    background-color: #111;
+  }
+  &::-webkit-progress-value { 
+    background-image: linear-gradient(-90deg, #b451ff 0%, #55237b 100%);
+  }
+  &::-moz-progress-bar {
+    background-image: linear-gradient(-90deg, #b451ff 0%, #55237b 100%);
   }
 }

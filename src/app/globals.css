@@ -121,11 +121,11 @@ span {
   position: absolute;
 }
 
-.w-fill {
+.w_fill {
   width: 100%;
 }
 
-.w-fit {
+.w_fit {
   width: fit-content;
 }
 

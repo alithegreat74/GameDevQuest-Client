@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../../components/Header";
-import SeparatorLine from "../../components/SeparatorLine";
+import Header from "../../../components/Header";
+import SeparatorLine from "../../../components/SeparatorLine";
 import Image from "next/image";
 
 import "./test.css";
@@ -28,7 +28,11 @@ const Lesson = () => {
               <p className="eyebrow_text">Main Test</p>
               <h1 className="text_gradient">Summoning Sprites with Unity</h1>
             </hgroup>
-            <progress value={4} max={10}></progress>
+            <div className="flex_center gap_8">
+              <span className="font_16_14"><b>4</b></span>
+              <progress value={4} max={10}></progress>
+              <span className="font_16_14">10</span>
+            </div>
           </div>
         </section>
       </main>
