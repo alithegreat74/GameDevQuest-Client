@@ -1,17 +1,20 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import "./TextInput.css";
+
 
 interface props {
   label: string;
   placeholder: string;
   type: string;
   inputName: string;
+  inputText?: string;
+  setInputText?:(text:string)=>void;
 }
 
-const TextInput = ({ label, placeholder, type, inputName }: props) => {
+const TextInput = ({ label, placeholder, type, inputName, inputText, setInputText}: props) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const isPassword = type === "password";
@@ -21,6 +24,7 @@ const TextInput = ({ label, placeholder, type, inputName }: props) => {
     setShowPassword((prev) => !prev);
   };
 
+
   return (
     <p className="text_input flex flex_column gap_8 relative">
       <label className="text_gradient" htmlFor={inputName}>
@@ -29,9 +33,11 @@ const TextInput = ({ label, placeholder, type, inputName }: props) => {
       <input
         className="merri"
         id={inputName}
+        value={inputText}
         name={inputName}
         type={inputType}
         placeholder={placeholder}
+        onChange={(e)=>{setInputText?.(e.target.value)}}
       />
       {isPassword && (
         <button
