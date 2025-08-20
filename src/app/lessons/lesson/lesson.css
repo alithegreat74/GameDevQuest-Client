@@ -11,7 +11,6 @@ h1 {
 
 article p {
   font-size: clamp(14px, 2vw, 16px);
-  line-height: 2em;
   text-indent: 1cm;
   &:not(aside p) {
     margin-block: 2em;
@@ -26,7 +25,7 @@ article p {
 #lesson_img {
   box-sizing: border-box;
   background: #000 no-repeat linear-gradient(0deg, #0009 0%, #0009 100%),
-    url(../../../../public/Lesson.jpg) center;
+    url(/Lesson.jpg) center;
   background-size: cover;
   margin-inline: auto;
   padding: 1rem;

@@ -16,10 +16,6 @@ body {
   color: #ffc067;
 }
 
-p:not(article p) {
-  line-height: 1.5em;
-}
-
 button,
 input[type="submit"] {
   cursor: pointer;
@@ -129,6 +125,15 @@ span {
   width: fit-content;
 }
 
+p:not(.text_read) {
+  line-height: 1.5em;
+}
+
+.text_read,
+.text_read > p {
+  line-height: 2em;
+}
+
 .purple_link {
   -webkit-text-fill-color: #b451ff;
   color: #b451ff;
@@ -217,5 +222,5 @@ svg.pink_shadow:hover {
 }
 
 .eyebrow_text {
-  opacity: 80%;
+  opacity: 0.8;
 }
