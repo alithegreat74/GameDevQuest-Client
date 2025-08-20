@@ -2,7 +2,6 @@ import React from "react";
 import Menu from "../components/svgs/Menu";
 import Image from "next/image";
 
-import "./Header.css"
 
 const Lessons = () => {
   return (

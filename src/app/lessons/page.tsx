@@ -1,8 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
 import SeparatorLine from "../components/SeparatorLine";
-
-import "./lessons.css";
 import LessonCard from "../components/LessonCard";
 
 const Lessons = () => {
