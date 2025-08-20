@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "game-dev-quest": "file:",
     "next": "15.3.2",
     "next-images": "^1.8.5",
     "react": "^19.0.0",

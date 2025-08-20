@@ -1,8 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import SeparatorLine from "../components/SeparatorLine";
-
-import "./lessons.css";
+import LessonCard from "../components/LessonCard";
 
 const Lessons = () => {
   return (
@@ -24,6 +23,9 @@ const Lessons = () => {
           <a href="#">In-Progress</a>
           <a href="#">Completed</a>
         </nav>
+        <section id="lessons_container" className="flex flex_column">
+          <LessonCard />
+        </section>
       </main>
     </>
   );
