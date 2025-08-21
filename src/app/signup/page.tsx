@@ -67,18 +67,18 @@ const Signup = () => {
             </a>
           </p>
           <input
-            className="main_btn mediaval"
+            className="main_btn hover w-full mediaval"
             type="submit"
             value={"ENTER THE GUILD"}
           />
           <p className="text_gradient merri font_14 text_center">
             Already a member of the guild?
-            <a className="purple_link" href="#">
+            <a className="purple_link" href="/login">
               Login
             </a>
           </p>
           <SeparatorLine text="or" />
-          <a className="secondary_btn " href="#">
+          <a className="secondary_btn hover w-full" href="#">
             <Image
               src={"/google.svg"}
               alt={"google"}

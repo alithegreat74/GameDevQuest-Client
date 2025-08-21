@@ -13,6 +13,16 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: #111;
+  color: #ffc067;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1,
@@ -21,9 +31,9 @@ label {
   font-family: "mediaval";
 }
 
-button,
-input[type="submit"] {
-  cursor: pointer;
+p,
+span {
+  font-family: "merriweather";
 }
 
 .mediaval {
@@ -64,6 +74,12 @@ input[type="submit"] {
   align-items: center;
 }
 
+.flex_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .flex_column {
   flex-direction: column;
 }
@@ -74,6 +90,10 @@ input[type="submit"] {
 
 .justify_between {
   justify-content: space-between;
+}
+
+.align_end {
+  align-items: flex-end;
 }
 
 .gap_8 {
@@ -92,6 +112,14 @@ input[type="submit"] {
   position: absolute;
 }
 
+.w-fill {
+  width: 100%;
+}
+
+.w-fit {
+  width: fit-content;
+}
+
 .purple_link {
   -webkit-text-fill-color: #b451ff;
   color: #b451ff;
@@ -104,17 +132,23 @@ input[type="submit"] {
 }
 
 .main_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "mediaval";
   background: radial-gradient(50% 50% at 50% 50%, #b451ff 0%, #55237b 100%);
   color: #ffc067;
   border: none;
-  width: 100%;
   height: 2.5rem;
   letter-spacing: 4px;
   transition: 1s;
   font-weight: bold;
-  &:hover {
+  padding-inline: 1rem;
+  &.hover:hover {
     letter-spacing: 6px;
+  }
+  & > img {
+    margin-right: 0.5rem;
   }
 }
 
@@ -128,14 +162,14 @@ input[type="submit"] {
   color: #fff;
   border: 1px solid #fff;
   box-shadow: inset 0 0 2px #fff;
-  width: 100%;
   height: 2.5rem;
   transition: 1s;
-  &:hover {
+  padding-inline: 1rem;
+  &.hover:hover {
     box-shadow: inset 0 0 8px #fff;
   }
   & > img {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
 }
 
@@ -163,4 +197,12 @@ input[type="submit"] {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+svg.pink_shadow {
+  transition: 0.5s;
+}
+
+svg.pink_shadow:hover {
+  filter: drop-shadow(0 0 5px #b451ff);
 }
