@@ -2,6 +2,7 @@ import React from "react";
 import Menu from "../components/svgs/Menu";
 import Image from "next/image";
 
+
 const Lessons = () => {
   return (
     <>
