@@ -1,0 +1,53 @@
+main {
+  box-sizing: border-box;
+  padding-inline: 2rem;
+  width: clamp(200px, 100%, 1200px);
+  margin-inline: auto;
+}
+
+h1 {
+  font-size: clamp(24px, 4.5vw, 40px);
+}
+
+article p {
+  font-size: clamp(14px, 2vw, 16px);
+  line-height: 2em;
+  &:not(aside p) {
+    margin-block: 2em;
+  }
+}
+
+#hero_section {
+  margin-block: 2rem;
+  text-align: center;
+}
+
+#lesson_img {
+  box-sizing: border-box;
+  background: #000 no-repeat linear-gradient(0deg, #0009 0%, #0009 100%),
+    url(/Lesson.jpg) center;
+  background-size: cover;
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+.lesson_tags .lesson_tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 5px;
+  border: 1px solid #ffc067;
+  font-size: 14px;
+}
+
+aside.note {
+  box-sizing: border-box;
+  border-left: 3px solid #080;
+  padding: 1rem 2rem 1rem;
+  background-image: linear-gradient(90deg, #0806 0%, #0800 100%);
+  & > span {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
