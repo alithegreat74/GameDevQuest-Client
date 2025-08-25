@@ -65,8 +65,7 @@ const Lesson = () => {
               </label>
             </div>
           </form>
-          <div id="test_buttons" className="flex_center">
-            <button className="main_btn">BACK</button>
+          <div id="test_buttons">
             <button className="main_btn">NEXT</button>
           </div>
         </article>

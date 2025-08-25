@@ -63,6 +63,7 @@ article p {
 }
 
 #test_section {
+  margin-bottom: 2rem;
   & > form {
     padding-inline: 2rem;
     border-left: 1px solid #ffc067;
@@ -71,12 +72,15 @@ article p {
 
 #test_buttons {
   gap: 10rem;
-  padding-top: 1rem;
-  & > button:first-child:hover {
-    transform: translateX(-.5rem);
+  padding: 2rem 2rem 0;
+  & > button {
+    margin-left: auto;
   }
-  & > button:last-child:hover {
-    transform: translateX(.5rem);
+  & > button:disabled {
+    opacity: .5;
+  }
+  & > button:hover:not(:disabled) {
+    transform: scale(1.05);
   }
 }
 
