@@ -27,7 +27,7 @@ article p {
 #lesson_img {
   box-sizing: border-box;
   background: #000 no-repeat linear-gradient(0deg, #0009 0%, #0009 100%),
-    url(../../../../../public/Lesson.jpg) center;
+    url(/Lesson.jpg) center;
   background-size: cover;
   margin-inline: auto;
   padding: 1rem;
