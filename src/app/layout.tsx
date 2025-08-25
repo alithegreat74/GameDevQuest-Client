@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "./components/Header.css";
+import "./components/SeparatorLine.css";
 import "./components/Header.css"
 import "./lessons/lessons.css";
 

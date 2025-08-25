@@ -11,7 +11,7 @@ h1 {
 
 article p {
   font-size: clamp(14px, 2vw, 16px);
-  line-height: 2em;
+  text-indent: 1cm;
   &:not(aside p) {
     margin-block: 2em;
   }
@@ -29,6 +29,7 @@ article p {
   background-size: cover;
   margin-inline: auto;
   padding: 1rem;
+  width: 100%;
 }
 
 .lesson_tags .lesson_tag {

@@ -16,10 +16,6 @@ body {
   color: #ffc067;
 }
 
-p:not(article p) {
-  line-height: 1.5em;
-}
-
 button,
 input[type="submit"] {
   cursor: pointer;
@@ -121,12 +117,21 @@ span {
   position: absolute;
 }
 
-.w-fill {
+.w_fill {
   width: 100%;
 }
 
-.w-fit {
+.w_fit {
   width: fit-content;
+}
+
+p:not(.text_read) {
+  line-height: 1.5em;
+}
+
+.text_read,
+.text_read > p {
+  line-height: 2em;
 }
 
 .purple_link {

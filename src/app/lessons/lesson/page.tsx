@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/Header";
-import SeparatorLine from "../components/SeparatorLine";
+import Header from "../../components/Header";
+import SeparatorLine from "../../components/SeparatorLine";
 import Image from "next/image";
 
 import "./lesson.css";
@@ -34,7 +34,7 @@ const Lesson = () => {
             </hgroup>
           </div>
         </section>
-        <article>
+        <article className="text_read">
           <h2>Overview</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto,
@@ -47,7 +47,7 @@ const Lesson = () => {
           </p>
           <aside className="note">
             <span>Note:</span>
-            <p>
+            <p className="text_read">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
               asperiores earum eum officia deserunt tempora impedit veritatis a
               perferendis incidunt voluptatem corrupti fugit ex modi placeat,
