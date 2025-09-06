@@ -25,7 +25,6 @@ const Lessons = () => {
     minimumRequiredLevel:1
   }
   async function fetchDataFromServer() {
-    console.log(`Access Token ${accessToken}`);
     axios.get(`${API_URL()}/getalllessons`, {
       headers: {
         Authorization: `Bearer ${accessToken}`
@@ -37,8 +36,16 @@ const Lessons = () => {
     })
   }
   useEffect(() => {
+    if(!useServerData)
+      return;
+    if(!accessToken)
+    {
+      setNoDataText("Please Log in or sign up");
+      setPageData(null);
+      return;
+    }
     fetchDataFromServer();
-  }, [accessToken])
+  }, [accessToken,useServerData])
 
   if (pageData == null && useServerData) {
     return (
