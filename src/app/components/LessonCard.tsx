@@ -18,7 +18,7 @@ const LessonCard = ({lesson}:{lesson:LessonCardDto}) => {
     <div className="lesson_card">
       <Image
         src={lesson.lessonImageUrl}
-        alt={"Summoning Sprite with Unity"}
+        alt={lesson.title}
         width={300}
         height={200}
       />
