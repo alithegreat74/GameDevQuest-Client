@@ -8,19 +8,25 @@ import TextInput from "../components/TextInput";
 import SeparatorLine from "../components/SeparatorLine";
 import axios from "axios";
 import { API_URL } from "../../../lib/config";
+import { useAuth } from "../components/AuthContext";
 
 const Signup = () => {
   const [usernameInputText, setUsernameInputText]=useState("");
   const [passwordInputText, setPasswordInputText]=useState("");
   const [confirmPasswordInputText, setConfirmPasswordInputText]=useState("");
+  const {setAccessToken} = useAuth();
   //TODO: We need a dialogue system that pops dialogues when needed
   const submit=(e:React.FormEvent)=>  {
     e.preventDefault();
     if(confirmPasswordInputText!==passwordInputText)
       return;
     axios.post(`${API_URL()}/signup`,{
-      Username:usernameInputText,
+      UserIdentifier:usernameInputText,
       Password:passwordInputText
+    }).then((response)=>{
+      setAccessToken(response.data.token);
+    }).catch((error)=>{
+      console.log(error);
     })
   }
   return (
