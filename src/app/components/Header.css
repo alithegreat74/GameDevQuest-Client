@@ -1,5 +1,10 @@
 #header {
+  position: relative;
   padding: 2rem;
+}
+
+#header_profile:hover #header_profile_dropdown {
+  display: flex;
 }
 
 #header_profile > div {
@@ -17,4 +22,30 @@
 #header_profile_image {
   background-color: #fff;
   border-radius: 50%;
+}
+
+#header_profile_dropdown {
+  display: none;
+  position: absolute;
+  right: 2rem;
+  top: 5rem;
+  padding-top: 1rem;
+  & > div {
+    background-color: #222;
+    padding: 1rem;
+  }
+  &:hover {
+    display: flex;
+  }
+  & progress {
+    block-size: .7rem;
+    inline-size: 13rem;
+    accent-color: green;
+  }
+  & progress::-webkit-progress-value {
+    background-color: green;
+  }
+  & progress::-moz-progress-bar {
+    background-color: green;
+  }
 }
