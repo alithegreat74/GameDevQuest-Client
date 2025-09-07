@@ -25,11 +25,11 @@ const Lessons = () => {
               <div className="flex_between">
                 <span>LVL 4</span>
                 <div className="flex flex_column">
-                  <span>60%</span>
+                  <span>30%</span>
                   <small>30/100</small>
                 </div>
               </div>
-              <progress value={30} max={100}></progress>
+              <progress value={30} max={100} aria-label="Experience progress"></progress>
               <a href="#" className="main_btn hover">
                 profile
               </a>
