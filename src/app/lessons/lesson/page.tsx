@@ -4,6 +4,7 @@ import SeparatorLine from "../../components/SeparatorLine";
 import Image from "next/image";
 
 import "./lesson.css";
+import Footer from "@/app/components/Footer";
 
 const Lesson = () => {
   return (
@@ -65,6 +66,7 @@ const Lesson = () => {
           </p>
         </article>
       </main>
+      <Footer />
     </>
   );
 };

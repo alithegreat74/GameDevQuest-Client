@@ -5,6 +5,7 @@ import "./components/Header.css";
 import "./components/SeparatorLine.css";
 import "./components/Header.css"
 import "./lessons/lessons.css";
+import "./components/Footer.css"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
