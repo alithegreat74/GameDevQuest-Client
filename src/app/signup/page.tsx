@@ -3,29 +3,30 @@ import React, { useState } from "react";
 import Image from "next/image";
 import "../style/LoginSignup.css";
 import "./login.css";
-
 import TextInput from "../components/TextInput";
 import SeparatorLine from "../components/SeparatorLine";
 import axios from "axios";
 import { API_URL } from "../../../lib/config";
-import { useAuth } from "../components/AuthContext";
+import { useRouter } from "next/navigation";
 
 const Signup = () => {
-  const [usernameInputText, setUsernameInputText]=useState("");
-  const [passwordInputText, setPasswordInputText]=useState("");
-  const [confirmPasswordInputText, setConfirmPasswordInputText]=useState("");
-  const {setAccessToken} = useAuth();
+  const router = useRouter();
+  const [usernameInputText, setUsernameInputText] = useState("");
+  const [passwordInputText, setPasswordInputText] = useState("");
+  const [confirmPasswordInputText, setConfirmPasswordInputText] = useState("");
   //TODO: We need a dialogue system that pops dialogues when needed
-  const submit=(e:React.FormEvent)=>  {
+  const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if(confirmPasswordInputText!==passwordInputText)
+    if (confirmPasswordInputText !== passwordInputText)
       return;
-    axios.post(`${API_URL()}/signup`,{
-      UserIdentifier:usernameInputText,
-      Password:passwordInputText
-    }).then((response)=>{
-      setAccessToken(response.data.token);
-    }).catch((error)=>{
+    axios.post(`${API_URL()}/signup`, {
+      UserIdentifier: usernameInputText,
+      Password: passwordInputText
+    }, {
+      withCredentials: true
+    }).then((response) => {
+      router.push('lessons');
+    }).catch((error) => {
       console.log(error);
     })
   }
