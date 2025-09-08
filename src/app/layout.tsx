@@ -6,6 +6,7 @@ import "./components/SeparatorLine.css";
 import "./components/Header.css"
 import "./lessons/lessons.css";
 import "./components/Footer.css"
+import { AuthProvider } from "./components/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
