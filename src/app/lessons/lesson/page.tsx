@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../components/Header";
 import SeparatorLine from "../../components/SeparatorLine";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
 
 import "./lesson.css";
 import Footer from "@/app/components/Footer";
@@ -12,6 +13,9 @@ const Lesson = () => {
       <Header />
       <SeparatorLine text={"LESSON 1"} />
       <main>
+        <ReactMarkdown>
+          {`# Lorem Ipsum\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  \nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  \n\n## Subheading\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  \nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n- Item one\n- Item two\n- Item three\n\n1. First step\n2. Second step\n3. Third step\n\n**Bold text** and *italic text* for emphasis.\n\n> This is a blockquote example.`}
+        </ReactMarkdown>
         <section id="hero_section" className="flex flex_column gap_16">
           <div id="lesson_img">
             <div className="lesson_tags flex gap_16">
