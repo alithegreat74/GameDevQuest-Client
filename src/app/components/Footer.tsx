@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import TextInput from "./TextInput";
+import SeparatorLine from "./SeparatorLine";
 
 const Footer = () => {
   return (
@@ -14,34 +15,36 @@ const Footer = () => {
         </div>
         <div id="footer_links">
           <div className="flex flex_column gap_8">
-            LINKS
+            <span>QUICK LINKS</span>
             <hr />
             <a href="">All things</a>
             <a href="">There</a>
             <a href="">All the Lessons</a>
           </div>
           <div className="flex flex_column gap_8">
-            FOLLOW US
+            <span>HELP</span>
             <hr />
-            <a href="">Instagram</a>
-            <a href="">Tweeter</a>
+            <a href="">Contact Us</a>
+            <a href="">Report a Bug</a>
+            <a href="">Support</a>
+          </div>
+          <div className="flex flex_column gap_8">
+            <span>COMPANY</span>
+            <hr />
+            <a href="">About Us</a>
+            <a href="">Partnership</a>
+          </div>
+          <div className="flex flex_column gap_8">
+            <span>SOCIAL</span>
+            <hr />
+            <a href="">GitHub</a>
+            <a href="">Linkedin</a>
             <a href="">Telegram</a>
             <a href="">YouTube</a>
           </div>
-          <div className="flex flex_column gap_8">
-            EMAIL UPDATES
-            <hr />
-            <span>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
-              obcaecati.
-            </span>
-            <form action="">
-              <input className="w_fill" type="email" name="footer-email" id="footer_email" />
-              <input type="submit" name="footer-submit" id="footer_submit" />
-            </form>
-          </div>
         </div>
       </div>
+        <p><small>Copyright © 2025 <span>G</span>ame<span>D</span>ev<span>Q</span>uest Team</small></p>
     </footer>
   );
 };

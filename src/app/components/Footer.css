@@ -19,10 +19,12 @@
   gap: 2rem;
   margin-top: 2rem;
   & > div {
+    flex-grow: 1;
     max-width: 20rem;
   }
-  & > div:last-child {
-    flex-grow: 2;
+  & > div > span {
+    font-family: "mediaval";
+    letter-spacing: 2px;
   }
   & > div > hr {
     width: 3rem;
@@ -30,13 +32,22 @@
     border-color: #ffc06777;
   }
   & > div > a {
-    color: #b451ff88;
-    transition: .5s;
+    font-family: "merriweather";
+    font-size: 14px;
+    color: #ffc06777;
+    transition: 0.5s;
   }
   & > div > a:hover {
-    color: #b451ff;
+    color: #ffc067;
   }
-  & > div > span {
-    color: #ffc06777;
+}
+
+#footer > p {
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  background-color: #111;
+  & span {
+    color: #b451ff;
   }
 }
