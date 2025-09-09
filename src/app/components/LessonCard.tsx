@@ -2,12 +2,23 @@ import React from "react";
 import Image from "next/image";
 import Star from "../components/Star";
 
-const LessonCard = () => {
+export type LessonCardDto = {
+  id:number,
+  title: string,
+  shortDescription: string,
+  lessonImageUrl:string,
+  userStars:number,
+  minimumRequiredLevel:number,
+  xp: number
+}
+
+
+const LessonCard = ({lesson}:{lesson:LessonCardDto}) => {
   return (
     <div className="lesson_card">
       <Image
-        src={"/Lesson.jpg"}
-        alt={"Summoning Sprite with Unity"}
+        src={lesson.lessonImageUrl}
+        alt={lesson.title}
         width={300}
         height={200}
       />
@@ -34,18 +45,12 @@ const LessonCard = () => {
             </span>
           </div>
           <div className="lesson_stars flex_center">
-            <Star rating={1} />
+            <Star rating={lesson.userStars} />
           </div>
         </div>
-        <h2>Summoning Sprites with Unity</h2>
-        <div className="lesson_progress flex">
-          <progress value={40} max={100}></progress> 40% Completed
-        </div>
+        <h2>{lesson.title}</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
-          accusamus quo quam, quibusdam dolores quae vero eveniet iste, voluptas
-          sed laboriosam alias exercitationem! Neque cum facere mollitia nemo,
-          ducimus natus.
+          {lesson.shortDescription}
         </p>
         <div className="lesson_bottom flex justify_between align_end">
           <div className="quest_tags flex gap_16">
@@ -56,7 +61,7 @@ const LessonCard = () => {
                 width={20}
                 height={20}
               />
-              Level 01
+              Level {lesson.minimumRequiredLevel}
             </span>
             <span className="quest_tag">
               <Image
@@ -65,7 +70,7 @@ const LessonCard = () => {
                 width={20}
                 height={20}
               />
-              48xp
+              {lesson.xp}xp
             </span>
           </div>
           <button className="main_btn">
