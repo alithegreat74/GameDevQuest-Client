@@ -1,6 +1,8 @@
-import React from "react";
+'use client';
+import React, { ReactElement } from "react";
 import Image from "next/image";
 import Star from "../components/Star";
+import { useRouter } from "next/navigation";
 
 export type LessonCardDto = {
   id:number,
@@ -14,8 +16,12 @@ export type LessonCardDto = {
 
 
 const LessonCard = ({lesson}:{lesson:LessonCardDto}) => {
+  const router = useRouter();
+  const onClick = ()=>{
+    router.push(`/lesson/?id=${lesson.id}`);
+  }
   return (
-    <div className="lesson_card">
+    <div className="lesson_card"> 
       <Image
         src={lesson.lessonImageUrl}
         alt={lesson.title}
@@ -73,7 +79,7 @@ const LessonCard = ({lesson}:{lesson:LessonCardDto}) => {
               {lesson.xp}xp
             </span>
           </div>
-          <button className="main_btn">
+          <button className="main_btn" onClick={onClick}>
             <Image src={"/stabbed-note.svg"} alt={"quest"} width={20} height={20} />
             Start Quest
           </button>
