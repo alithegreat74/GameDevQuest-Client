@@ -3,7 +3,7 @@ import { API_URL } from "./config";
 
 export default async function refreshSession():Promise<boolean>{
     try{
-        axios.get(`${API_URL()}/refreshsession`);
+        axios.get(`${API_URL()}/refreshsession`, {withCredentials:true});
         return true;
     }
     catch{

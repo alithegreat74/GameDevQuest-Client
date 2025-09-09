@@ -25,7 +25,7 @@ const Signup = () => {
     }, {
       withCredentials: true
     }).then((response) => {
-      router.push('lessons');
+      router.push('/lessons');
     }).catch((error) => {
       console.log(error);
     })

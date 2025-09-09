@@ -11,31 +11,32 @@ import { LessonCardDto } from "../components/LessonCard";
 import refreshSession from "../../../lib/refreshSession";
 
 const Lessons = () => {
-  const useServerData:boolean = false;
+  const useServerData: boolean = false;
   const [pageData, setPageData] = useState<LessonCardDto[] | null>(null);
   const [noDataText, setNoDataText] = useState("Loading...")
-  const dummyLesson:LessonCardDto={
-    id:1,
-    title:'test',
-    shortDescription:'description',
-    lessonImageUrl:'/Lesson1.jpg',
-    userStars:3,
-    xp:5,
-    minimumRequiredLevel:1
+  const dummyLesson: LessonCardDto = {
+    id: 1,
+    title: 'test',
+    shortDescription: 'description',
+    lessonImageUrl: '/Lesson1.jpg',
+    userStars: 3,
+    xp: 5,
+    minimumRequiredLevel: 1
   }
   async function fetchDataFromServer() {
-    try{
-      const response = await axios.get(`${API_URL()}/getalllessons`,{
-        withCredentials:true
+    try {
+      const response = await axios.get(`${API_URL()}/getalllessons`, {
+        withCredentials: true
       });
       setPageData(response.data);
     }
-    catch(error:any){
-      if(error.response?.status === 401){
+    catch (error: any) {
+      if (error.response?.status === 401) {
         const refreshed = await refreshSession();
-        if(refreshed){
-          const response = await axios.get(`${API_URL()}/getalllessons`);
-          setPageData(response.data);
+        if (refreshed) {
+          const response = await axios.get(`${API_URL()}/getalllessons`, {
+            withCredentials: true
+          });
           return;
         }
       }
@@ -43,7 +44,7 @@ const Lessons = () => {
     }
   }
   useEffect(() => {
-    if(!useServerData)
+    if (!useServerData)
       return;
     fetchDataFromServer();
   }, [useServerData])
@@ -74,12 +75,12 @@ const Lessons = () => {
         </nav>
         <section id="lessons_container" className="flex flex_column gap_16">
           {
-            useServerData?
-            pageData?.map((lesson: LessonCardDto) => (
-              <LessonCard key={lesson.id} lesson={lesson} />
-            ))
-            :
-            <LessonCard key={dummyLesson.id} lesson={dummyLesson} />
+            useServerData ?
+              pageData?.map((lesson: LessonCardDto) => (
+                <LessonCard key={lesson.id} lesson={lesson} />
+              ))
+              :
+              <LessonCard key={dummyLesson.id} lesson={dummyLesson} />
           }
         </section>
       </main>
