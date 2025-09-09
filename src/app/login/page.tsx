@@ -7,20 +7,22 @@ import TextInput from "../components/TextInput";
 import SeparatorLine from "../components/SeparatorLine";
 import axios from "axios";
 import { API_URL } from "../../../lib/config";
-import { useAuth } from "../components/AuthContext";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const router = useRouter();
   const [usernameInputText, setUsernameInputText]=useState("");
   const [passwordInputText, setPasswordInputText]=useState("");
-  const {setAccessToken} = useAuth();
   //TODO: we need a genuine wait screen for sending requests
   const submit=(e: React.FormEvent)=>{
     e.preventDefault();
     axios.post(`${API_URL()}/login`,{
       UserIdentifier:usernameInputText,
       Password:passwordInputText
+    },{
+      withCredentials : true
     }).then((response)=>{
-      setAccessToken(response.data.token);
+      router.push('/lessons');
     }).catch((error)=>{
       console.log(error);
     })

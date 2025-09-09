@@ -1,10 +1,9 @@
 import React from "react";
-import Header from "../../../components/Header";
-import SeparatorLine from "../../../components/SeparatorLine";
+import Header from "../components/Header";
+import SeparatorLine from "../components/SeparatorLine";
 import Image from "next/image";
 
 import "./test.css";
-import Footer from "@/app/components/Footer";
 
 const Lesson = () => {
   return (
