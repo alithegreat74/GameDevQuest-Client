@@ -7,45 +7,47 @@ import LessonCard from "../components/LessonCard";
 import axios from "axios";
 import "./lessons.css";
 import { API_URL } from "../../../lib/config";
-import { useAuth } from "../components/AuthContext";
 import { LessonCardDto } from "../components/LessonCard";
+import refreshSession from "../../../lib/refreshSession";
 
 const Lessons = () => {
-  const useServerData:boolean = false;
+  const useServerData: boolean = false;
   const [pageData, setPageData] = useState<LessonCardDto[] | null>(null);
   const [noDataText, setNoDataText] = useState("Loading...")
-  const { accessToken } = useAuth();
-  const dummyLesson:LessonCardDto={
-    id:1,
-    title:'test',
-    shortDescription:'description',
-    lessonImageUrl:'/Lesson1.jpg',
-    userStars:3,
-    xp:5,
-    minimumRequiredLevel:1
+  const dummyLesson: LessonCardDto = {
+    id: 1,
+    title: 'test',
+    shortDescription: 'description',
+    lessonImageUrl: '/Lesson1.jpg',
+    userStars: 3,
+    xp: 5,
+    minimumRequiredLevel: 1
   }
   async function fetchDataFromServer() {
-    axios.get(`${API_URL()}/getalllessons`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
-    }).then((response) => {
+    try {
+      const response = await axios.get(`${API_URL()}/getalllessons`, {
+        withCredentials: true
+      });
       setPageData(response.data);
-    }).catch((error) => {
-      setNoDataText(`There was a problem on gettin the data from the server ${error}`);
-    })
+    }
+    catch (error: any) {
+      if (error.response?.status === 401) {
+        const refreshed = await refreshSession();
+        if (refreshed) {
+          const response = await axios.get(`${API_URL()}/getalllessons`, {
+            withCredentials: true
+          });
+          return;
+        }
+      }
+      setNoDataText("There was an error fetching the data from the server")
+    }
   }
   useEffect(() => {
-    if(!useServerData)
+    if (!useServerData)
       return;
-    if(!accessToken)
-    {
-      setNoDataText("Please Log in or sign up");
-      setPageData(null);
-      return;
-    }
     fetchDataFromServer();
-  }, [accessToken,useServerData])
+  }, [useServerData])
 
   if (pageData == null && useServerData) {
     return (
@@ -73,12 +75,12 @@ const Lessons = () => {
         </nav>
         <section id="lessons_container" className="flex flex_column gap_16">
           {
-            useServerData?
-            pageData?.map((lesson: LessonCardDto) => (
-              <LessonCard key={lesson.id} lesson={lesson} />
-            ))
-            :
-            <LessonCard key={dummyLesson.id} lesson={dummyLesson} />
+            useServerData ?
+              pageData?.map((lesson: LessonCardDto) => (
+                <LessonCard key={lesson.id} lesson={lesson} />
+              ))
+              :
+              <LessonCard key={dummyLesson.id} lesson={dummyLesson} />
           }
         </section>
       </main>
