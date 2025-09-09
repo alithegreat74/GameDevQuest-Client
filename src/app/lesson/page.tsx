@@ -11,7 +11,8 @@ import axios from "axios";
 import { API_URL } from "../../../lib/config";
 import refreshSession from "../../../lib/refreshSession";
 import rehypeRaw from "rehype-raw";
-import { Warning, Note, Error, Props } from "../components/MarkdownCards";
+import { WarningCard, NoteCard, ErrorCard, Props } from "../components/MarkdownCards";
+import rehypeSanitize from "rehype-sanitize";
 type LessonDto = {
   id:number,
   title: string,
@@ -32,9 +33,9 @@ const Lesson = () => {
       <iframe {...props} style={{ aspectRatio: "16 / 9", border: 0 }} />
     </div>
   ),
-  warning: ({ children }) => <Warning>{children}</Warning>,
-  note: ({ children }) => <Note>{children}</Note>,
-  error: ({ children }) => <Error>{children}</Error>,
+  warning: ({ children }) => <WarningCard>{children}</WarningCard>,
+  note: ({ children }) => <NoteCard>{children}</NoteCard>,
+  error: ({ children }) => <ErrorCard>{children}</ErrorCard>,
 };
   const useServerData:boolean=false;
   const searchParams = useSearchParams();
@@ -78,7 +79,7 @@ const Lesson = () => {
       <SeparatorLine text={!useServerData?"Lesson 1":pageData!==null?pageData.title:"invalid title"} />
       <main>
         <ReactMarkdown 
-          rehypePlugins={[rehypeRaw]}
+          rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema]]}
           components={markdownComponents}
         >
           {

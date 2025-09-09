@@ -1,13 +1,13 @@
 import React, { ReactNode } from "react";
-import './MarkdownCards.css'
+import style from "./MarkdownCards.module.css"
 
 export interface Props{
     children:ReactNode
 }
-export const Note=({children}:Props)=>{
+export const NoteCard=({children}:Props)=>{
     return(
         <>
-            <aside className="note">
+            <aside className={style.note}>
                 <span>Note:</span>
                 <div className="text_read">
                     {children}
@@ -17,10 +17,10 @@ export const Note=({children}:Props)=>{
     )
 }
 
-export const Warning=({children}:Props)=>{
+export const WarningCard=({children}:Props)=>{
     return(
         <>
-            <aside className="warning">
+            <aside className={style.warning}>
                 <span>Warning:</span>
                 <div className="text_read">
                     {children}
@@ -30,10 +30,10 @@ export const Warning=({children}:Props)=>{
     )
 }
 
-export const Error=({children}:Props)=>{
+export const ErrorCard=({children}:Props)=>{
     return(
         <>
-            <aside className="error">
+            <aside className={style.error}>
                 <span>Error:</span>
                 <div className="text_read">
                     {children}
