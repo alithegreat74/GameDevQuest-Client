@@ -37,6 +37,7 @@ const Lessons = () => {
           const response = await axios.get(`${API_URL()}/getalllessons`, {
             withCredentials: true
           });
+          setPageData(response.data);
           return;
         }
       }
