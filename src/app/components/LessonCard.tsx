@@ -18,7 +18,7 @@ export type LessonCardDto = {
 const LessonCard = ({lesson}:{lesson:LessonCardDto}) => {
   const router = useRouter();
   const onClick = ()=>{
-    router.push(`lesson/?id=${lesson.id}`);
+    router.push(`/lesson/?id=${lesson.id}`);
   }
   return (
     <div className="lesson_card"> 

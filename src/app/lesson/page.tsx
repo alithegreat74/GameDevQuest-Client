@@ -34,12 +34,18 @@ const Lesson = () => {
     catch(e:any)
     {
       if (e.response?.status === 401) {
+
         const refreshed = await refreshSession();
         if (refreshed) {
-          const response = await axios.get(`${API_URL()}/getlesson/${lessonId}`, {
+          try{
+            const response = await axios.get(`${API_URL()}/getlesson/${lessonId}`, {
             withCredentials: true
           });
           setPageData(response.data);
+          }
+          catch(e:any){
+            console.log(e);
+          }
           return;
         }
       }
