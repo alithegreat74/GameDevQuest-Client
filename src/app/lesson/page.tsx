@@ -1,23 +1,42 @@
 'use client';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, ReactNode } from "react";
 import Header from "../components/Header";
 import SeparatorLine from "../components/SeparatorLine";
-import ReactMarkdown from "react-markdown";
-
+import ReactMarkdown, {Components} from "react-markdown";
+import Image from "next/image";
 import "./lesson.css";
 import Footer from "@/app/components/Footer";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import { API_URL } from "../../../lib/config";
 import refreshSession from "../../../lib/refreshSession";
-
+import rehypeRaw from "rehype-raw";
+import { WarningCard, NoteCard, ErrorCard, Props } from "../components/MarkdownCards";
+import rehypeSanitize from "rehype-sanitize";
 type LessonDto = {
   id:number,
   title: string,
   description: string,
 }
-
+interface CustomComponents extends Components {
+  warning?: React.ComponentType<{ children?: React.ReactNode }>;
+  note?: React.ComponentType<{ children?: React.ReactNode }>;
+  error?: React.ComponentType<{ children?: React.ReactNode }>;
+}
 const Lesson = () => {
+  const markdownComponents: CustomComponents = {
+  img: ({ node, ...props }) => (
+    <img {...props} style={{ maxWidth: "100%", height: "auto" }} />
+  ),
+  iframe: ({ node, ...props }) => (
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <iframe {...props} style={{ aspectRatio: "16 / 9", border: 0 }} />
+    </div>
+  ),
+  warning: ({ children }) => <WarningCard>{children}</WarningCard>,
+  note: ({ children }) => <NoteCard>{children}</NoteCard>,
+  error: ({ children }) => <ErrorCard>{children}</ErrorCard>,
+};
   const useServerData:boolean=false;
   const searchParams = useSearchParams();
   const lessonId = searchParams.get('id');
@@ -54,27 +73,19 @@ const Lesson = () => {
   useEffect(()=>{
     getDataFromServer();
   },[lessonId])
-
-
   return (
     <>
       <Header />
       <SeparatorLine text={!useServerData?"Lesson 1":pageData!==null?pageData.title:"invalid title"} />
       <main>
         <ReactMarkdown 
-          components={{
-            img: ({node, ...props}) => (
-              <img
-                {...props}
-                style={{ maxWidth: "100%", height: "auto" }}
-              />
-            ),
-          }}
+          rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema]]}
+          components={markdownComponents}
         >
           {
             useServerData?
               pageData!==null?pageData.description:"Error while getting data from server":
-              `# Lorem Ipsum\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  \nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  \n\n## Subheading\n\n![Sample Image](/Lesson1.jpg)\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  \nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n- Item one\n- Item two\n- Item three\n\n1. First step\n2. Second step\n3. Third step\n\n**Bold text** and *italic text* for emphasis.\n\n> This is a blockquote example.`
+              `# Markdown Example Block\n\nThis is a paragraph explaining the content. You can write **bold text** and *italic text* here.  \n\n## Image Example\n\n![Sample Image](/Lesson1.jpg)\n\n## Video Example\n\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/dQw4w9WgXcQ\" \ntitle=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; \nclipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n\n## Lists\n\n- Item one\n- Item two\n- Item three\n\n1. First step\n2. Second step\n3. Third step\n\n## Blockquote\n\n> This is a blockquote example.\n\n## Warning Example\n<Warning>Be careful</Warning>\n\n## Error Example\n<Error>Be careful</Error>\n\n## Note Example\n<Note>Be careful</Note>`
           }
         </ReactMarkdown>
       </main>
