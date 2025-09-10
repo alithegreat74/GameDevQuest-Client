@@ -38,7 +38,7 @@ export async function get<T = any>(url: string, showErrorPopup: boolean): Promis
             }).then((result)=>{
                 if(!result.isConfirmed)
                     return;
-                window.location.href = '/lessons';
+                window.location.href = '/login';
             })
             return null;
         }
@@ -91,7 +91,7 @@ export async function post<TResponse = any, URequest=any>(url: string, payload: 
             }).then((result)=>{
                 if(!result.isConfirmed)
                     return;
-                window.location.href = '/lessons';
+                window.location.href = '/login';
             })
         }
         if (!showErrorPopup)

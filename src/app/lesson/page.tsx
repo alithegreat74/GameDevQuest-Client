@@ -8,35 +8,16 @@ import Footer from "@/app/components/Footer";
 import { useSearchParams } from "next/navigation";
 import { API_URL } from "../../../lib/config";
 import rehypeRaw from "rehype-raw";
-import { WarningCard, NoteCard, ErrorCard, Props } from "../components/MarkdownCards";
 import rehypeSanitize from "rehype-sanitize";
-import sanitizeSchema from "../../../lib/markdownSanitizationConfig";
 import { get } from "../../../lib/requests";
+import { sanitizeSchema, markdownComponents } from "../../../lib/reactMarkdownConfig";
 type LessonDto = {
   id:number,
   title: string,
   description: string,
 }
-interface CustomComponents extends Components {
-  warning?: React.ComponentType<{ children?: React.ReactNode }>;
-  note?: React.ComponentType<{ children?: React.ReactNode }>;
-  error?: React.ComponentType<{ children?: React.ReactNode }>;
-}
 const Lesson = () => {
-  const markdownComponents: CustomComponents = {
-  img: ({ node, ...props }) => (
-    <img {...props} style={{ maxWidth: "100%", height: "auto" }} />
-  ),
-  iframe: ({ node, ...props }) => (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <iframe {...props} style={{ aspectRatio: "16 / 9", border: 0 }} />
-    </div>
-  ),
-  warning: ({ children }) => <WarningCard>{children}</WarningCard>,
-  note: ({ children }) => <NoteCard>{children}</NoteCard>,
-  error: ({ children }) => <ErrorCard>{children}</ErrorCard>,
-};
-  const useServerData:boolean=true;
+  const useServerData:boolean=false;
   const searchParams = useSearchParams();
   const lessonId = searchParams.get('id');
   const [pageData,setPageData] = useState<LessonDto | null>(null);

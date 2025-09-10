@@ -10,7 +10,7 @@ import { LessonCardDto } from "../components/LessonCard";
 import { get } from "../../../lib/requests";
 
 const Lessons = () => {
-  const useServerData: boolean = true;
+  const useServerData: boolean = false;
   const [pageData, setPageData] = useState<LessonCardDto[] | null>(null);
   const [noDataText, setNoDataText] = useState("Loading...")
   const dummyLesson: LessonCardDto = {

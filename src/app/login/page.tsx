@@ -15,13 +15,13 @@ const Login = () => {
   const [usernameInputText, setUsernameInputText]=useState("");
   const [passwordInputText, setPasswordInputText]=useState("");
   //TODO: we need a genuine wait screen for sending requests
-  const submit=(e: React.FormEvent)=>{
+  const submit=async (e: React.FormEvent)=>{
     e.preventDefault();
     const payload = {
       UserIdentifier:usernameInputText,
       Password:passwordInputText
     }
-    const response = post(`${API_URL()}/login`, payload, true);
+    const response = await post(`${API_URL()}/login`, payload, true);
     if(response===null)
       return;
 

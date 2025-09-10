@@ -17,7 +17,7 @@ const Signup = () => {
   const [passwordInputText, setPasswordInputText] = useState("");
   const [confirmPasswordInputText, setConfirmPasswordInputText] = useState("");
   //TODO: We need a dialogue system that pops dialogues when needed
-  const submit = (e: React.FormEvent) => {
+  const submit = async(e: React.FormEvent) => {
     e.preventDefault();
     if (confirmPasswordInputText !== passwordInputText){
       Swal.fire({
@@ -31,7 +31,7 @@ const Signup = () => {
       Email:emailInputText,
       Password:passwordInputText
     };
-    const response = post(`${API_URL()}/signup`, payload, true);
+    const response = await post(`${API_URL()}/signup`, payload, true);
     if(response===null)
       return;
     Swal.fire({
