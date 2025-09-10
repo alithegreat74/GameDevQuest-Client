@@ -59,19 +59,19 @@ const LessonCard = ({lesson}:{lesson:LessonCardDto}) => {
           {lesson.shortDescription}
         </p>
         <div className="lesson_bottom flex justify_between align_end">
-          <div className="quest_tags flex gap_16">
-            <span className="quest_tag">
+          <div className="lesson_tags flex gap_16">
+            <span className="lesson_tag">
               <Image
-                src={"/quest_level.svg"}
+                src={"/lesson_level.svg"}
                 alt={"required reward"}
                 width={20}
                 height={20}
               />
               Level {lesson.minimumRequiredLevel}
             </span>
-            <span className="quest_tag">
+            <span className="lesson_tag">
               <Image
-                src={"/quest_reward.svg"}
+                src={"/lesson_reward.svg"}
                 alt={"reward"}
                 width={20}
                 height={20}
@@ -80,8 +80,8 @@ const LessonCard = ({lesson}:{lesson:LessonCardDto}) => {
             </span>
           </div>
           <button className="main_btn" onClick={onClick}>
-            <Image src={"/stabbed-note.svg"} alt={"quest"} width={20} height={20} />
-            Start Quest
+            <Image src={"/stabbed-note.svg"} alt={"lesson"} width={20} height={20} />
+            Start Lesson
           </button>
         </div>
       </div>

@@ -1,0 +1,16 @@
+#quests {
+  padding: 1rem;
+}
+
+#quests_table {
+  width: 100%;
+  & th {
+    font-family: "mediaval";
+    text-align: start;
+    padding: .5rem;
+  }
+  & td {
+    font-family: "merriweather";
+    padding: .5rem;
+  }
+}

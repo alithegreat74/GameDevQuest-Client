@@ -84,7 +84,7 @@ h1 {
 }
 
 .lesson_bottom {
-  & > .quest_tags .quest_tag {
+  & > .lesson_tags .lesson_tag {
     display: flex;
     justify-content: center;
     align-items: center;
