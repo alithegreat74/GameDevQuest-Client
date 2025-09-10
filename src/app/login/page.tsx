@@ -5,27 +5,39 @@ import "../style/LoginSignup.css";
 import "./login.css";
 import TextInput from "../components/TextInput";
 import SeparatorLine from "../components/SeparatorLine";
-import axios from "axios";
 import { API_URL } from "../../../lib/config";
 import { useRouter } from "next/navigation";
+import { post } from "../../../lib/requests";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const router = useRouter();
   const [usernameInputText, setUsernameInputText]=useState("");
   const [passwordInputText, setPasswordInputText]=useState("");
   //TODO: we need a genuine wait screen for sending requests
-  const submit=(e: React.FormEvent)=>{
+  const submit=async (e: React.FormEvent)=>{
     e.preventDefault();
-    axios.post(`${API_URL()}/login`,{
+    const payload = {
       UserIdentifier:usernameInputText,
       Password:passwordInputText
-    },{
-      withCredentials : true
-    }).then((response)=>{
-      router.push('/lessons');
-    }).catch((error)=>{
-      console.log(error);
-    })
+    }
+    const response = await post(`${API_URL()}/login`, payload, true);
+    if(response===null)
+      return;
+
+    Swal.fire({
+          title:'Login Successfull',
+          text:'Continue your journey.',
+          icon:'success',
+          confirmButtonText:'OK',
+          allowEscapeKey: false,
+          allowOutsideClick: false
+        }).then((result)=>{
+          if(!result.isConfirmed)
+            return;
+    
+          router.push('/lessons');
+        });
   }
   return (
     <>

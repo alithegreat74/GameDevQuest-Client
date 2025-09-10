@@ -1,42 +1,22 @@
 'use client';
-import React, { useEffect, useState, ReactNode } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import SeparatorLine from "../components/SeparatorLine";
 import ReactMarkdown, {Components} from "react-markdown";
 import "./lesson.css";
 import Footer from "@/app/components/Footer";
 import { useSearchParams } from "next/navigation";
-import axios from "axios";
 import { API_URL } from "../../../lib/config";
-import refreshSession from "../../../lib/refreshSession";
 import rehypeRaw from "rehype-raw";
-import { WarningCard, NoteCard, ErrorCard, Props } from "../components/MarkdownCards";
 import rehypeSanitize from "rehype-sanitize";
-import sanitizeSchema from "../../../lib/markdownSanitizationConfig";
+import { get } from "../../../lib/requests";
+import { sanitizeSchema, markdownComponents } from "../../../lib/reactMarkdownConfig";
 type LessonDto = {
   id:number,
   title: string,
   description: string,
 }
-interface CustomComponents extends Components {
-  warning?: React.ComponentType<{ children?: React.ReactNode }>;
-  note?: React.ComponentType<{ children?: React.ReactNode }>;
-  error?: React.ComponentType<{ children?: React.ReactNode }>;
-}
 const Lesson = () => {
-  const markdownComponents: CustomComponents = {
-  img: ({ node, ...props }) => (
-    <img {...props} style={{ maxWidth: "100%", height: "auto" }} />
-  ),
-  iframe: ({ node, ...props }) => (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <iframe {...props} style={{ aspectRatio: "16 / 9", border: 0 }} />
-    </div>
-  ),
-  warning: ({ children }) => <WarningCard>{children}</WarningCard>,
-  note: ({ children }) => <NoteCard>{children}</NoteCard>,
-  error: ({ children }) => <ErrorCard>{children}</ErrorCard>,
-};
   const useServerData:boolean=false;
   const searchParams = useSearchParams();
   const lessonId = searchParams.get('id');
@@ -45,30 +25,10 @@ const Lesson = () => {
   async function getDataFromServer(){
     if(lessonId===null || lessonId === '')
       return;
-
-    try{
-      const response = await axios.get(`${API_URL()}/getlesson/${lessonId}`, {withCredentials:true});
-      setPageData(response.data);
-    }
-    catch(e:any)
-    {
-      if (e.response?.status === 401) {
-
-        const refreshed = await refreshSession();
-        if (refreshed) {
-          try{
-            const response = await axios.get(`${API_URL()}/getlesson/${lessonId}`, {
-            withCredentials: true
-          });
-          setPageData(response.data);
-          }
-          catch(e:any){
-            console.log(e);
-          }
-          return;
-        }
-      }
-    }
+    const response = await get(`${API_URL()}/getlesson/${lessonId}`, true);
+    if(response===null)
+      return;
+    setPageData(response);
   }
   useEffect(()=>{
     getDataFromServer();
