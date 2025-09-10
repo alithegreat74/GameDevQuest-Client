@@ -1,18 +1,17 @@
 'use client';
-import React, { useEffect, useState, ReactNode } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import SeparatorLine from "../components/SeparatorLine";
 import ReactMarkdown, {Components} from "react-markdown";
 import "./lesson.css";
 import Footer from "@/app/components/Footer";
 import { useSearchParams } from "next/navigation";
-import axios from "axios";
 import { API_URL } from "../../../lib/config";
-import refreshSession from "../../../lib/refreshSession";
 import rehypeRaw from "rehype-raw";
 import { WarningCard, NoteCard, ErrorCard, Props } from "../components/MarkdownCards";
 import rehypeSanitize from "rehype-sanitize";
 import sanitizeSchema from "../../../lib/markdownSanitizationConfig";
+import { get } from "../../../lib/requests";
 type LessonDto = {
   id:number,
   title: string,
@@ -37,7 +36,7 @@ const Lesson = () => {
   note: ({ children }) => <NoteCard>{children}</NoteCard>,
   error: ({ children }) => <ErrorCard>{children}</ErrorCard>,
 };
-  const useServerData:boolean=false;
+  const useServerData:boolean=true;
   const searchParams = useSearchParams();
   const lessonId = searchParams.get('id');
   const [pageData,setPageData] = useState<LessonDto | null>(null);
@@ -45,30 +44,10 @@ const Lesson = () => {
   async function getDataFromServer(){
     if(lessonId===null || lessonId === '')
       return;
-
-    try{
-      const response = await axios.get(`${API_URL()}/getlesson/${lessonId}`, {withCredentials:true});
-      setPageData(response.data);
-    }
-    catch(e:any)
-    {
-      if (e.response?.status === 401) {
-
-        const refreshed = await refreshSession();
-        if (refreshed) {
-          try{
-            const response = await axios.get(`${API_URL()}/getlesson/${lessonId}`, {
-            withCredentials: true
-          });
-          setPageData(response.data);
-          }
-          catch(e:any){
-            console.log(e);
-          }
-          return;
-        }
-      }
-    }
+    const response = await get(`${API_URL()}/getlesson/${lessonId}`, true);
+    if(response===null)
+      return;
+    setPageData(response);
   }
   useEffect(()=>{
     getDataFromServer();

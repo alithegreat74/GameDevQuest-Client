@@ -8,27 +8,45 @@ import SeparatorLine from "../components/SeparatorLine";
 import axios from "axios";
 import { API_URL } from "../../../lib/config";
 import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
+import { post } from "../../../lib/requests";
 
 const Signup = () => {
   const router = useRouter();
-  const [usernameInputText, setUsernameInputText] = useState("");
+  const [emailInputText, setEmailInputText] = useState("");
   const [passwordInputText, setPasswordInputText] = useState("");
   const [confirmPasswordInputText, setConfirmPasswordInputText] = useState("");
   //TODO: We need a dialogue system that pops dialogues when needed
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (confirmPasswordInputText !== passwordInputText)
+    if (confirmPasswordInputText !== passwordInputText){
+      Swal.fire({
+        title: "Password Error",
+        text: "Your confirm password doesn't match your password",
+        icon: 'error'
+      })
       return;
-    axios.post(`${API_URL()}/signup`, {
-      UserIdentifier: usernameInputText,
-      Password: passwordInputText
-    }, {
-      withCredentials: true
-    }).then((response) => {
+    }
+    const payload ={
+      Email:emailInputText,
+      Password:passwordInputText
+    };
+    const response = post(`${API_URL()}/signup`, payload, true);
+    if(response===null)
+      return;
+    Swal.fire({
+      title:'Signup Successfull',
+      text:'Your journey has begun.',
+      icon:'success',
+      confirmButtonText:'OK',
+      allowEscapeKey: false,
+      allowOutsideClick: false
+    }).then((result)=>{
+      if(!result.isConfirmed)
+        return;
+
       router.push('/lessons');
-    }).catch((error) => {
-      console.log(error);
-    })
+    });
   }
   return (
     <>
@@ -48,8 +66,8 @@ const Signup = () => {
             placeholder={"Enter your Email..."}
             type={"text"}
             inputName={"signup_username"}
-            inputText={usernameInputText}
-            setInputText={setUsernameInputText}
+            inputText={emailInputText}
+            setInputText={setEmailInputText}
           />
           <TextInput
             label={"Create a Sigil"}
