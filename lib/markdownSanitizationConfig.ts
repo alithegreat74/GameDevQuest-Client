@@ -18,3 +18,5 @@ const sanitizeSchema = {
     iframe: { src: ['https'] }
   }
 } as const;
+
+export default sanitizeSchema;
