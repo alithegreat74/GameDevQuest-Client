@@ -26,6 +26,13 @@ interface CustomComponents extends Components {
   error?: React.ComponentType<{ children?: React.ReactNode }>;
 }
 export const markdownComponents: CustomComponents = {
+  a: ({ children, ...props }) => {
+    const rel =
+      props.target === "_blank"
+        ? [props.rel, "noopener", "noreferrer"].filter(Boolean).join(" ")
+        : props.rel;
+    return <a {...props} rel={rel}>{children}</a>;
+  },
   img: ({ node, ...props }) => (
     <img {...props} style={{ maxWidth: "100%", height: "auto" }} />
   ),

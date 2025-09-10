@@ -66,7 +66,7 @@ export async function post<TResponse = any, URequest=any>(url: string, payload: 
             const refreshed = await refreshSession();
             if (refreshed) {
                 try {
-                    const response = await axios.get(url, {
+                    const response = await axios.post(url, payload, {
                         withCredentials: true
                     });
                     return response.data;

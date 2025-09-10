@@ -35,7 +35,7 @@ const Signup = () => {
     if(response===null)
       return;
     Swal.fire({
-      title:'Signup Successfull',
+      title:'Signup Successful',
       text:'Your journey has begun.',
       icon:'success',
       confirmButtonText:'OK',
