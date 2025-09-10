@@ -64,7 +64,7 @@ const Lessons = () => {
                   <small>{serverData!==null?`${serverData.xp}/${serverData.levelUpXp}`:'loading...'}</small>
                 </div>
               </div>
-              <progress value={serverData!==null?serverData.xp:0} max={serverData!==null?serverData.levelUpXp:0} aria-label="Experience progress"></progress>
+              <progress value={serverData!==null?serverData.xp:0} max={serverData!==null?serverData.levelUpXp:1} aria-label="Experience progress"></progress>
               <a href="#" className="main_btn hover">
                 profile
               </a>
