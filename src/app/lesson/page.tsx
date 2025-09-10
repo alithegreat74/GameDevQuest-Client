@@ -3,7 +3,6 @@ import React, { useEffect, useState, ReactNode } from "react";
 import Header from "../components/Header";
 import SeparatorLine from "../components/SeparatorLine";
 import ReactMarkdown, {Components} from "react-markdown";
-import Image from "next/image";
 import "./lesson.css";
 import Footer from "@/app/components/Footer";
 import { useSearchParams } from "next/navigation";
@@ -13,6 +12,7 @@ import refreshSession from "../../../lib/refreshSession";
 import rehypeRaw from "rehype-raw";
 import { WarningCard, NoteCard, ErrorCard, Props } from "../components/MarkdownCards";
 import rehypeSanitize from "rehype-sanitize";
+import sanitizeSchema from "../../../lib/markdownSanitizationConfig";
 type LessonDto = {
   id:number,
   title: string,
