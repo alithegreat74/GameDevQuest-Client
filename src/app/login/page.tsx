@@ -8,38 +8,74 @@ import SeparatorLine from "../components/SeparatorLine";
 import axios from "axios";
 import { API_URL } from "../../../lib/config";
 import { useRouter } from "next/navigation";
+import Loader from "../components/Loader";
 
-const Login = () => {
+const Login: React.FC = () => {
   const router = useRouter();
-  const [usernameInputText, setUsernameInputText]=useState("");
-  const [passwordInputText, setPasswordInputText]=useState("");
-  //TODO: we need a genuine wait screen for sending requests
-  const submit=(e: React.FormEvent)=>{
+  const [usernameInputText, setUsernameInputText] = useState("");
+  const [passwordInputText, setPasswordInputText] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    axios.post(`${API_URL()}/login`,{
-      UserIdentifier:usernameInputText,
-      Password:passwordInputText
-    },{
-      withCredentials : true
-    }).then((response)=>{
-      router.push('/lessons');
-    }).catch((error)=>{
-      console.log(error);
-    })
-  }
+    if (loading) return;
+
+    setLoading(true);
+    const startTime = Date.now();
+
+    let success = false;
+    let errorMsg = "Login failed. Please check your credentials.";
+
+    try {
+      await axios.post(
+        `${API_URL()}/login`,
+        {
+          UserIdentifier: usernameInputText,
+          Password: passwordInputText,
+        },
+        {
+          withCredentials: true,
+          timeout: 5000,
+        }
+      );
+
+      success = true;
+    } catch (err: any) {
+      console.error("Login error:", err);
+      if (err?.response?.data?.message) errorMsg = err.response.data.message;
+      else if (err?.message) errorMsg = err.message;
+    } finally {
+      const elapsed = Date.now() - startTime;
+      const remaining = 1000 - elapsed;
+      if (remaining > 0) {
+        await new Promise((res) => setTimeout(res, remaining));
+      }
+
+      setLoading(false);
+
+      if (success) {
+        router.push("/lessons");
+      } else {
+        alert(errorMsg);
+      }
+    }
+  };
+
   return (
     <>
+      {loading && <Loader />}
+
       <header>
         <div className="main_logo">
           <Image src="/logo.svg" alt="logo" width={50} height={52} />
-          <span className="camel">G</span>ame<span className="camel">D</span>
-          ev
+          <span className="camel">G</span>ame<span className="camel">D</span>ev
           <span className="camel">Q</span>uest - <h1>Login</h1>
         </div>
       </header>
+
       <main id="login_page">
         <h2 className="text_gradient">Only The Worthy May Enter</h2>
-        <form className="flex flex_column" action="" onSubmit={submit}>
+        <form className="flex flex_column" onSubmit={submit}>
           <TextInput
             label={"Adventurer Name"}
             placeholder={"Username or Email..."}
@@ -62,25 +98,24 @@ const Login = () => {
               Seek the Oracle
             </a>
           </p>
+
           <input
             className="main_btn hover w-full mediaval"
             type="submit"
             value={"ENTER THE GUILD"}
+            disabled={loading}
           />
+
           <p className="text_gradient merri font_14 text_center">
             Are you a new adventurer?
             <a className="purple_link" href="/signup">
               SignUp
             </a>
           </p>
+
           <SeparatorLine text="or" />
           <a className="secondary_btn hover w-full" href="#">
-            <Image
-              src={"/google.svg"}
-              alt={"google"}
-              width={24}
-              height={24}
-            ></Image>
+            <Image src={"/google.svg"} alt={"google"} width={24} height={24} />
             Login with Google
           </a>
         </form>
