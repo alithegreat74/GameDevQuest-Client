@@ -5,62 +5,46 @@ import "../style/LoginSignup.css";
 import "./login.css";
 import TextInput from "../components/TextInput";
 import SeparatorLine from "../components/SeparatorLine";
-import axios from "axios";
 import { API_URL } from "../../../lib/config";
 import { useRouter } from "next/navigation";
 import Loader from "../components/Loader";
+import { post } from "../../../lib/requests";
+import Swal from "sweetalert2";
 
 const Login: React.FC = () => {
   const router = useRouter();
-  const [usernameInputText, setUsernameInputText] = useState("");
-  const [passwordInputText, setPasswordInputText] = useState("");
+  const [usernameInputText, setUsernameInputText]=useState("");
+  const [passwordInputText, setPasswordInputText]=useState("");
   const [loading, setLoading] = useState(false);
-
-  const submit = async (e: React.FormEvent) => {
+  //TODO: we need a genuine wait screen for sending requests
+  const submit=async (e: React.FormEvent)=>{
     e.preventDefault();
     if (loading) return;
 
     setLoading(true);
-    const startTime = Date.now();
-
-    let success = false;
-    let errorMsg = "Login failed. Please check your credentials.";
-
-    try {
-      await axios.post(
-        `${API_URL()}/login`,
-        {
-          UserIdentifier: usernameInputText,
-          Password: passwordInputText,
-        },
-        {
-          withCredentials: true,
-          timeout: 5000,
-        }
-      );
-
-      success = true;
-    } catch (err: any) {
-      console.error("Login error:", err);
-      if (err?.response?.data?.message) errorMsg = err.response.data.message;
-      else if (err?.message) errorMsg = err.message;
-    } finally {
-      const elapsed = Date.now() - startTime;
-      const remaining = 1000 - elapsed;
-      if (remaining > 0) {
-        await new Promise((res) => setTimeout(res, remaining));
-      }
-
-      setLoading(false);
-
-      if (success) {
-        router.push("/lessons");
-      } else {
-        alert(errorMsg);
-      }
+    const payload = {
+      UserIdentifier:usernameInputText,
+      Password:passwordInputText
     }
-  };
+    const response = await post(`${API_URL()}/login`, payload, true);
+    if(response===null)
+      return;
 
+    Swal.fire({
+          title:'Login Successfull',
+          text:'Continue your journey.',
+          icon:'success',
+          confirmButtonText:'OK',
+          allowEscapeKey: false,
+          allowOutsideClick: false
+        }).then((result)=>{
+          if(!result.isConfirmed)
+            return;
+    
+          router.push('/lessons');
+        });
+    setLoading(false);
+  }
   return (
     <>
       {loading && <Loader />}

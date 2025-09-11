@@ -4,11 +4,10 @@ import { useState } from "react";
 import Header from "../components/Header";
 import SeparatorLine from "../components/SeparatorLine";
 import LessonCard from "../components/LessonCard";
-import axios from "axios";
 import "./lessons.css";
 import { API_URL } from "../../../lib/config";
 import { LessonCardDto } from "../components/LessonCard";
-import refreshSession from "../../../lib/refreshSession";
+import { get } from "../../../lib/requests";
 
 const Lessons = () => {
   const useServerData: boolean = false;
@@ -24,25 +23,10 @@ const Lessons = () => {
     minimumRequiredLevel: 1
   }
   async function fetchDataFromServer() {
-    try {
-      const response = await axios.get(`${API_URL()}/getalllessons`, {
-        withCredentials: true
-      });
-      setPageData(response.data);
-    }
-    catch (error: any) {
-      if (error.response?.status === 401) {
-        const refreshed = await refreshSession();
-        if (refreshed) {
-          const response = await axios.get(`${API_URL()}/getalllessons`, {
-            withCredentials: true
-          });
-          setPageData(response.data);
-          return;
-        }
-      }
-      setNoDataText("There was an error fetching the data from the server")
-    }
+    const response = await get(`${API_URL()}/getalllessons`, true);
+    if(response===null)
+      return;
+    setPageData(response);
   }
   useEffect(() => {
     if (!useServerData)

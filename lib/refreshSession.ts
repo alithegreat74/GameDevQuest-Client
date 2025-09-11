@@ -6,7 +6,8 @@ export default async function refreshSession():Promise<boolean>{
         await axios.get(`${API_URL()}/refreshsession`, {withCredentials:true});
         return true;
     }
-    catch{
+    catch(e:any){
+        console.log(e);
         return false;
     }
 }
