@@ -27,6 +27,7 @@ const Login: React.FC = () => {
       Password:passwordInputText
     }
     const response = await post(`${API_URL()}/login`, payload, true);
+    setLoading(false);
     if(response===null)
       return;
 
@@ -43,7 +44,6 @@ const Login: React.FC = () => {
     
           router.push('/lessons');
         });
-    setLoading(false);
   }
   return (
     <>
