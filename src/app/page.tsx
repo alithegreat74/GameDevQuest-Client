@@ -9,6 +9,8 @@ export default function Home() {
         <a href="/signup">signup</a>
         <a href="/lessons">lessons</a>
         <a href="/lesson">lesson</a>
+        <a href="/lesson">test</a>
+        <a href="/quests">quests</a>
       </nav>
     </main>
   );

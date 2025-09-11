@@ -10,7 +10,7 @@ const Lesson = () => {
     <>
       <Header />
       <SeparatorLine text={"LESSON 1 - TEST"} />
-      <main>
+      <main className="max_width">
         <section id="hero_section" className="flex flex_column gap_16">
           <div id="lesson_img">
             <div className="lesson_tags flex gap_16">
@@ -52,11 +52,11 @@ const Lesson = () => {
                 <span>Answer A</span>
               </label>
               <label>
-                <input type="radio" name="question1" value="b" />
+                <input className="true" type="radio" name="question1" value="b" />
                 <span>Answer B</span>
               </label>
               <label>
-                <input type="radio" name="question1" value="c" />
+                <input className="false" type="radio" name="question1" value="c" />
                 <span>Answer C</span>
               </label>
               <label>

@@ -37,6 +37,20 @@ span {
   font-family: "merriweather";
 }
 
+hgroup > h1 ~ p {
+  opacity: 0.5;
+}
+
+.max_width {
+  box-sizing: border-box;
+  padding-inline: 2rem;
+  width: clamp(200px, 100%, 1200px);
+  margin-inline: auto;
+  & > * {
+    width: 100%;
+  }
+}
+
 .mediaval {
   font-family: "mediaval";
 }
@@ -158,6 +172,7 @@ p:not(.text_read) {
   transition: 1s;
   font-weight: bold;
   padding-inline: 1rem;
+  border: 1px solid #ffc067;
   &.hover:hover {
     letter-spacing: 6px;
   }

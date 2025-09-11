@@ -1,16 +1,53 @@
-#quests {
-  padding: 1rem;
-}
-
 #quests_table {
   width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  & a {
+    color: #ffc067;
+    transition: .5s;
+  }
+  & a:hover {
+    color: #b451ff;
+  }
+  & thead th {
+    border: 1px solid #ffc06777;
+  }
   & th {
     font-family: "mediaval";
     text-align: start;
     padding: .5rem;
   }
+  & tbody tr {
+    border-bottom: 1px solid #ffc06777;
+    transition: .5s;
+  }
+  & tbody tr:nth-child(even) {
+    background-color: #ffc06711;
+  }
+  & tbody tr:hover {
+    background-color: #ffc06722;
+  }
+  & tr td:first-child {
+    font-size: 14px;
+  }
+  & tr td:not(:first-child) {
+    font-size: 12px;
+  }
   & td {
     font-family: "merriweather";
-    padding: .5rem;
+    padding: 1rem .5rem;
   }
+  & td.rewards {
+    opacity: .7;
+  }
+}
+
+.quest_tags .quest_tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 5px;
+  border: 1px solid #ffc067;
+  font-size: 12px;
 }
