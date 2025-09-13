@@ -43,7 +43,7 @@ const Lessons = () => {
     <>
       <Header />
       <SeparatorLine text={"LESSONS"} />
-      <main>
+      <main className="max_width">
         <hgroup>
           <h1 className="text_gradient">Hall of Scrolls</h1>
           <p>
@@ -51,11 +51,10 @@ const Lessons = () => {
             secrets of game creation — ready to be mastered.
           </p>
         </hgroup>
-        <nav id="lessons_tabs" className="merri font_14">
+        <nav id="tabs" className="merri font_14">
           <a href="#" className="active">
             All Scrolls
           </a>
-          <a href="#">In-Progress</a>
           <a href="#">Completed</a>
         </nav>
         <section id="lessons_container" className="flex flex_column gap_16">
