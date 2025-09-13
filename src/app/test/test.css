@@ -86,10 +86,10 @@ article p {
   & > label:has(input[type="radio"]:checked) {
     box-shadow: 0 0 8px 0px #b451ff inset;
   }
-  & > label:has(input.true) {
+  & > label.true_answer{
     box-shadow: 0 0 8px 0px #37ff02 inset;
   }
-  & > label:has(input.false) {
+  & > label.false_answer {
     box-shadow: 0 0 8px 0px #a62400 inset;
   }
   & > label {

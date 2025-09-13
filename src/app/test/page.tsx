@@ -51,12 +51,12 @@ const Lesson = () => {
                 <input type="radio" name="question1" value="a" />
                 <span>Answer A</span>
               </label>
-              <label>
-                <input className="true" type="radio" name="question1" value="b" />
+              <label className="true_answer">
+                <input type="radio" name="question1" value="b" />
                 <span>Answer B</span>
               </label>
-              <label>
-                <input className="false" type="radio" name="question1" value="c" />
+              <label className="false_answer">
+                <input type="radio" name="question1" value="c" />
                 <span>Answer C</span>
               </label>
               <label>
