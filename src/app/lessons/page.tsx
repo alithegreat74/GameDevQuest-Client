@@ -51,7 +51,7 @@ const Lessons = () => {
             secrets of game creation — ready to be mastered.
           </p>
         </hgroup>
-        <nav id="lessons_tabs" className="merri font_14">
+        <nav id="tabs" className="merri font_14">
           <a href="#" className="active">
             All Scrolls
           </a>

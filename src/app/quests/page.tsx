@@ -19,7 +19,7 @@ const Lessons = () => {
             succeed.
           </p>
         </hgroup>
-        <nav id="lessons_tabs" className="merri font_14">
+        <nav id="tabs" className="merri font_14">
           <a href="#" className="active">
             All Quests
           </a>

@@ -16,9 +16,9 @@ const AdventureCircularProgress = ({
   // Theme colors
   const themes = {
     default: {
-      progress: '#4f46e5',
+      progress: '#b451ff',
       background: '#e5e7eb',
-      text: '#4f46e5'
+      text: '#b451ff'
     }
   };
 
@@ -62,9 +62,6 @@ const AdventureCircularProgress = ({
       .duration(1500)
       .ease(d3.easeExpOut)
       .attr('stroke-dashoffset', dashOffset);
-
-    progressArc
-      .style('filter', 'url(#glow)');
 
     const defs = svg.append('defs');
     const filter = defs.append('filter')

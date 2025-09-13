@@ -6,7 +6,7 @@ h1 {
   font-size: 40px;
 }
 
-#lessons_tabs {
+#tabs {
   margin-block: 2rem 3rem;
   & > a {
     color: #ffc06777;
