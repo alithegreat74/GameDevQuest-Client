@@ -1,8 +1,43 @@
-import React from "react";
+'use client';
+import React, { useEffect, useState } from "react";
 import Menu from "../components/svgs/Menu";
 import Image from "next/image";
+import axios from "axios";
+import { API_URL } from "../../../lib/config";
+import refreshSession from "../../../lib/refreshSession";
+
+type XpDto = {
+  xp: number,
+  levelUpXp: number,
+  level: number
+};
 
 const Lessons = () => {
+
+  const [serverData, setServerData] = useState<XpDto|null>(null);
+  async function fetchDataFromServer(){
+    try{
+      const response = await axios.get(`${API_URL()}/getxp`, {withCredentials:true});
+      setServerData(response.data);
+    }
+    catch (error: any) {
+      if (error.response?.status === 401) {
+        const refreshed = await refreshSession();
+        if (refreshed) {
+          const response = await axios.get(`${API_URL()}/getxp`, {
+            withCredentials: true
+          });
+          setServerData(response.data);
+          return;
+        }
+      }
+    }
+  }
+
+  useEffect(()=>{ 
+    fetchDataFromServer();
+  },[])
+
   return (
     <>
       <header id="header" className="flex_between">
@@ -23,13 +58,13 @@ const Lessons = () => {
           <div id="header_profile_dropdown">
             <div className="flex flex_column gap_16">
               <div className="flex_between">
-                <span>LVL 4</span>
+                <span>{serverData!==null?`LVL ${serverData.level}`:'loading...'}</span>
                 <div className="flex flex_column">
-                  <span>30%</span>
-                  <small>30/100</small>
+                  <span>{serverData!==null?`${serverData.xp/serverData.levelUpXp}%`:'loading...'}</span>
+                  <small>{serverData!==null?`${serverData.xp}/${serverData.levelUpXp}`:'loading...'}</small>
                 </div>
               </div>
-              <progress value={30} max={100} aria-label="Experience progress"></progress>
+              <progress value={serverData!==null?serverData.xp:0} max={serverData!==null?serverData.levelUpXp:1} aria-label="Experience progress"></progress>
               <a href="#" className="main_btn hover">
                 profile
               </a>
