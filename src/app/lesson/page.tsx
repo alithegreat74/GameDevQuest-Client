@@ -37,7 +37,7 @@ const Lesson = () => {
     <>
       <Header />
       <SeparatorLine text={!useServerData?"Lesson 1":pageData!==null?pageData.title:"invalid title"} />
-      <main>
+      <main className="max_width">
         <ReactMarkdown 
           rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema]]}
           components={markdownComponents}

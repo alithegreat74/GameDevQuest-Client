@@ -43,7 +43,7 @@ const Lessons = () => {
     <>
       <Header />
       <SeparatorLine text={"LESSONS"} />
-      <main>
+      <main className="max_width">
         <hgroup>
           <h1 className="text_gradient">Hall of Scrolls</h1>
           <p>
@@ -55,7 +55,6 @@ const Lessons = () => {
           <a href="#" className="active">
             All Scrolls
           </a>
-          <a href="#">In-Progress</a>
           <a href="#">Completed</a>
         </nav>
         <section id="lessons_container" className="flex flex_column gap_16">
