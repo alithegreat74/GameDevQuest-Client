@@ -65,28 +65,28 @@ const Login: React.FC = () => {
   // const [usernameInputText, setUsernameInputText] = useState("");
   // const [passwordInputText, setPasswordInputText] = useState("");
   // //TODO: we need a genuine wait screen for sending requests
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const payload = {
-      UserIdentifier: usernameInputText,
-      Password: passwordInputText,
-    };
-    const response = await post(`${API_URL()}/login`, payload, true);
-    if (response === null) return;
+  // const submit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   const payload = {
+  //     UserIdentifier: usernameInputText,
+  //     Password: passwordInputText,
+  //   };
+  //   const response = await post(`${API_URL()}/login`, payload, true);
+  //   if (response === null) return;
 
-    Swal.fire({
-      title: "Login Successfull",
-      text: "Continue your journey.",
-      icon: "success",
-      confirmButtonText: "OK",
-      allowEscapeKey: false,
-      allowOutsideClick: false,
-    }).then((result) => {
-      if (!result.isConfirmed) return;
+  //   Swal.fire({
+  //     title: "Login Successfull",
+  //     text: "Continue your journey.",
+  //     icon: "success",
+  //     confirmButtonText: "OK",
+  //     allowEscapeKey: false,
+  //     allowOutsideClick: false,
+  //   }).then((result) => {
+  //     if (!result.isConfirmed) return;
 
-      router.push("/lessons");
-    });
-  };
+  //     router.push("/lessons");
+  //   });
+  // };
   return (
     <>
       {loading && <Loader />}

@@ -38,6 +38,6 @@ article p {
   align-items: center;
   gap: 8px;
   padding: 2px 5px;
-  border: 1px solid #ffc067;
+  border: 1px solid var(--text);
   font-size: 14px;
 }

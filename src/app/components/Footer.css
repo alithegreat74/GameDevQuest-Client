@@ -39,7 +39,7 @@
     transition: 0.5s;
   }
   & > div > a:hover {
-    color: #ffc067;
+    color: var(--text);
   }
 }
 
@@ -49,6 +49,6 @@
   text-align: center;
   background-color: #111;
   & span {
-    color: #b451ff;
+    color: var(--main);
   }
 }

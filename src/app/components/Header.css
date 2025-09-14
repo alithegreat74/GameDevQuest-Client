@@ -9,7 +9,7 @@
 
 #header_profile > div {
   & > * {
-    color: #ffc067;
+    color: var(--text);
   }
   & > p {
     margin-block: 0;

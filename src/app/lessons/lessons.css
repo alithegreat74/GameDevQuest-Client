@@ -16,12 +16,12 @@ h1 {
     border-bottom: 1px solid transparent;
   }
   & > a.active {
-    color: #ffc067;
-    border-bottom: 1px solid #ffc067;
+    color: var(--text);
+    border-bottom: 1px solid var(--text);
   }
   & > a:not(.active):hover {
-    color: #b451ff;
-    /* border-bottom: 1px solid #b451ff; */
-    filter: drop-shadow(0 0 5px #b451ff);
+    color: var(--main);
+    /* border-bottom: 1px solid var(--main); */
+    filter: drop-shadow(0 0 5px var(--main));
   }
 }
