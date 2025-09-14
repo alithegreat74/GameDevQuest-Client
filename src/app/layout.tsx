@@ -3,9 +3,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./components/Header.css";
 import "./components/SeparatorLine.css";
-import "./components/Header.css"
+import "./components/Header.css";
 import "./lessons/lessons.css";
-import "./components/Footer.css"
+import "./components/Footer.css";
+import "./components/Loader.css";
+import "./components/LessonCard.css";
 import { AuthProvider } from "./components/AuthContext";
 
 const geistSans = Geist({
@@ -31,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-          {children}
+        {children}
       </body>
     </html>
   );
