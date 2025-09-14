@@ -43,11 +43,11 @@
   border-spacing: 0;
   border-collapse: collapse;
   & a {
-    color: #ffc067;
+    color: var(--text);
     transition: 0.5s;
   }
   & a:hover {
-    color: #b451ff;
+    color: var(--main);
   }
   & thead th {
     border: 1px solid #ffc06777;
@@ -88,7 +88,7 @@
   align-items: center;
   gap: 4px;
   padding: 2px 5px;
-  border: 1px solid #ffc067;
+  border: 1px solid var(--text);
   font-size: 12px;
 }
 

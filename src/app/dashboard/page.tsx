@@ -140,6 +140,7 @@ const Dashboard = () => {
           id="quests_tab"
           className={`flex flex_column ${toggle === 2 ? "active_tab" : ""}`}
         >
+          <a href="" className="main_btn hover">+ Create a new Quest</a>
           <div id="active_quests" className="dashboard_thing">
             <h2>Active Quests</h2>
             <div>

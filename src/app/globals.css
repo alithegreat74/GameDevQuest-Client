@@ -1,3 +1,9 @@
+html {
+  --main: #9407ff;
+  --dark_main: #4c0384;
+  --text: #ffc067;
+}
+
 @font-face {
   font-family: mediaval;
   src: url(./fonts/MedievalSharp-Regular.ttf);
@@ -13,7 +19,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: #111;
-  color: #ffc067;
+  color: var(--text);
 }
 
 button,
@@ -149,13 +155,13 @@ p:not(.text_read) {
 }
 
 .purple_link {
-  -webkit-text-fill-color: #b451ff;
-  color: #b451ff;
+  -webkit-text-fill-color: var(--main);
+  color: var(--main);
   text-shadow: 0 0 0 #b451ff33;
   transition: text-shadow 1s;
   margin-left: 0.5rem;
   &:hover {
-    text-shadow: 0 0 4px #b451ff;
+    text-shadow: 0 0 4px var(--main);
   }
 }
 
@@ -164,15 +170,15 @@ p:not(.text_read) {
   justify-content: center;
   align-items: center;
   font-family: "mediaval";
-  background: radial-gradient(50% 50% at 50% 50%, #b451ff 0%, #55237b 100%);
-  color: #ffc067;
+  background: radial-gradient(50% 50% at 50% 50%, var(--main) 0%, var(--dark_main) 100%);
+  color: var(--text);
   border: none;
   height: 2.5rem;
   letter-spacing: 4px;
   transition: 1s;
   font-weight: bold;
   padding-inline: 1rem;
-  border: 1px solid #ffc067;
+  border: 1px solid var(--text);
   &.hover:hover {
     letter-spacing: 6px;
   }
@@ -207,14 +213,14 @@ p:not(.text_read) {
   align-items: center;
   font-family: "mediaval";
   font-size: 2.5em;
-  background: linear-gradient(180deg, #ffc067 0%, #99733e 100%);
+  background: linear-gradient(180deg, var(--text) 0%, #99733e 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   user-select: none;
   white-space: nowrap;
   & > .camel {
-    background: linear-gradient(180deg, #b451ff 0%, #55237b 100%);
+    background: linear-gradient(180deg, var(--main) 0%, var(--dark_main) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -222,7 +228,7 @@ p:not(.text_read) {
 }
 
 .text_gradient {
-  background: linear-gradient(180deg, #ffc067 0%, #99733e 100%);
+  background: linear-gradient(180deg, var(--text) 0%, #99733e 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -233,7 +239,7 @@ svg.pink_shadow {
 }
 
 svg.pink_shadow:hover {
-  filter: drop-shadow(0 0 5px #b451ff);
+  filter: drop-shadow(0 0 5px var(--main));
 }
 
 .eyebrow_text {

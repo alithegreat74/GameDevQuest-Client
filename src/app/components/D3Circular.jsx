@@ -91,7 +91,7 @@ const AdventureCircularProgress = ({
       .style("font-size", size * 0.2)
       .style("font-weight", "bold")
       .style("fill", colors.text)
-      .text(`${Math.round(progressPercentage * 100)}%`);
+      .text(`${Math.round(progressRatio * 100)}%`);
   }, [progress, total, size, strokeWidth, colors]);
 
   return (

@@ -30,25 +30,25 @@ article p {
   align-items: center;
   gap: 8px;
   padding: 2px 5px;
-  border: 1px solid #ffc067;
+  border: 1px solid var(--text);
   font-size: 14px;
 }
 
 #test_progress {
   block-size: clamp(0.7rem, 2vw, 0.9rem);
   inline-size: clamp(15rem, 27vw, 20rem);
-  border: 2px solid #ffc067;
+  border: 2px solid var(--text);
   border-radius: 1rem;
   overflow: hidden;
-  accent-color: #55237b;
+  accent-color: var(--dark_main);
   &::-webkit-progress-bar {
     background-color: #111;
   }
   &::-webkit-progress-value {
-    background-image: linear-gradient(-90deg, #b451ff 0%, #55237b 100%);
+    background-image: linear-gradient(-90deg, var(--main) 0%, var(--dark_main) 100%);
   }
   &::-moz-progress-bar {
-    background-image: linear-gradient(-90deg, #b451ff 0%, #55237b 100%);
+    background-image: linear-gradient(-90deg, var(--main) 0%, var(--dark_main) 100%);
   }
 }
 
@@ -56,7 +56,7 @@ article p {
   margin-bottom: 2rem;
   & > form {
     padding-inline: 2rem;
-    border-left: 1px solid #ffc067;
+    border-left: 1px solid var(--text);
   }
 }
 
@@ -84,7 +84,7 @@ article p {
 
 #answers {
   & > label:has(input[type="radio"]:checked) {
-    box-shadow: 0 0 8px 0px #b451ff inset;
+    box-shadow: 0 0 8px 0px var(--main) inset;
   }
   & > label.true_answer{
     box-shadow: 0 0 8px 0px #37ff02 inset;
@@ -97,13 +97,13 @@ article p {
     align-items: center;
     gap: 0.5rem;
     padding: 1rem;
-    box-shadow: 0 0 0px 0px #b451ff inset;
+    box-shadow: 0 0 0px 0px var(--main) inset;
     transition: 0.5s;
   }
   & > label:hover {
     box-shadow: 0 0 8px 0px #aaa inset;
   }
   & > label > input[type="radio"] {
-    accent-color: #b451ff;
+    accent-color: var(--main);
   }
 }
