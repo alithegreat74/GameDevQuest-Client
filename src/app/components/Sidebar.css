@@ -1,0 +1,39 @@
+#sidebar {
+    z-index: 10;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 15rem;
+    background-image: linear-gradient(#030222 8.19%, #16153d 100%);
+    padding: 2rem;
+    overflow: hidden;
+    transition: .5s;
+}
+
+#sidebar_links {
+    margin-top: 2rem;
+    & > a {
+        font-size: 16px;
+        padding: 1rem 1rem;
+        color: #ffc06799;
+        font-family: "merriweather";
+        transition: .5s;
+        border-collapse: collapse;
+        border-top: 1px solid #ffc06733;
+    }
+    & > a:last-child {
+        border-bottom: 1px solid #ffc06733;
+    }
+    & > a:hover {
+        opacity: 1;
+        background-color: #ffc06711;
+    }
+    & > a.sidebar_logout {
+        position: absolute;
+        bottom: 2rem;
+        left: 2rem;
+        right: 2rem;
+        border-bottom: 1px solid #ffc06733;
+    }
+}

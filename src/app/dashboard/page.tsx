@@ -9,6 +9,7 @@ import D3BarChart from "../components/D3BarChart";
 import D3Sunburst from "../components/D3Sunburst";
 import { useState } from "react";
 import LessonCard from "../components/LessonCard";
+import Sidebar from "../components/Sidebar";
 
 const Dashboard = () => {
   const [toggle, setToggle] = useState(1);
@@ -64,6 +65,7 @@ const Dashboard = () => {
   ];
   return (
     <>
+      <Sidebar />
       <Header />
       <SeparatorLine text={"DASHBOARD"} />
       <main id="dashboard_main" className="max_width">
@@ -140,7 +142,9 @@ const Dashboard = () => {
           id="quests_tab"
           className={`flex flex_column ${toggle === 2 ? "active_tab" : ""}`}
         >
-          <a href="" className="main_btn hover">+ Create a new Quest</a>
+          <a href="" className="main_btn hover">
+            + Create a new Quest
+          </a>
           <div id="active_quests" className="dashboard_thing">
             <h2>Active Quests</h2>
             <div>
@@ -284,45 +288,50 @@ const Dashboard = () => {
             </div>
           </div>
         </section>
-        <section id="lessons_tab" className={`flex flex_column gap_16 ${toggle === 3 ? "active_tab" : ""}`}>
+        <section
+          id="lessons_tab"
+          className={`flex flex_column gap_16 ${
+            toggle === 3 ? "active_tab" : ""
+          }`}
+        >
           <div className="dashboard_thing flex flex_column gap_16">
             <h2>Inprogress Lessons</h2>
-              <LessonCard
-                lesson={{
-                  id: 0,
-                  title: "summon spirit",
-                  shortDescription:
-                    "lets do this and summon some spirit to your unity world",
-                  lessonImageUrl: "/lesson.jpg",
-                  userStars: 2,
-                  minimumRequiredLevel: 4,
-                  xp: 56,
-                }}
-              />
-              <LessonCard
-                lesson={{
-                  id: 0,
-                  title: "summon spirit",
-                  shortDescription:
-                    "lets do this and summon some spirit to your unity world",
-                  lessonImageUrl: "/lesson.jpg",
-                  userStars: 2,
-                  minimumRequiredLevel: 4,
-                  xp: 56,
-                }}
-              />
-              <LessonCard
-                lesson={{
-                  id: 0,
-                  title: "summon spirit",
-                  shortDescription:
-                    "lets do this and summon some spirit to your unity world",
-                  lessonImageUrl: "/lesson.jpg",
-                  userStars: 2,
-                  minimumRequiredLevel: 4,
-                  xp: 56,
-                }}
-              />
+            <LessonCard
+              lesson={{
+                id: 0,
+                title: "summon spirit",
+                shortDescription:
+                  "lets do this and summon some spirit to your unity world",
+                lessonImageUrl: "/lesson.jpg",
+                userStars: 2,
+                minimumRequiredLevel: 4,
+                xp: 56,
+              }}
+            />
+            <LessonCard
+              lesson={{
+                id: 0,
+                title: "summon spirit",
+                shortDescription:
+                  "lets do this and summon some spirit to your unity world",
+                lessonImageUrl: "/lesson.jpg",
+                userStars: 2,
+                minimumRequiredLevel: 4,
+                xp: 56,
+              }}
+            />
+            <LessonCard
+              lesson={{
+                id: 0,
+                title: "summon spirit",
+                shortDescription:
+                  "lets do this and summon some spirit to your unity world",
+                lessonImageUrl: "/lesson.jpg",
+                userStars: 2,
+                minimumRequiredLevel: 4,
+                xp: 56,
+              }}
+            />
           </div>
         </section>
       </main>
