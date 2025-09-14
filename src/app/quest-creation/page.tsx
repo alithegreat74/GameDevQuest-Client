@@ -4,8 +4,6 @@ import React from "react";
 import Header from "../components/Header";
 import SeparatorLine from "../components/SeparatorLine";
 import MDEditor from "@uiw/react-md-editor";
-
-import "./quest-creation.css";
 import TextInput from "../components/TextInput";
 import Footer from "../components/Footer";
 
@@ -47,7 +45,8 @@ const Lesson = () => {
               height={400}
             />
           </div>
-          <div id="submit_quest_button">
+          <div id="quest_buttons">
+            <button className="secondary_btn">Cancel</button>
             <button className="main_btn">Submit</button>
           </div>
         </section>

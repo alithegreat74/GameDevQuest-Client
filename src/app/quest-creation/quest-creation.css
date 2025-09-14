@@ -1,42 +1,30 @@
 #quest_creation {
-    box-sizing: border-box;
-    padding: 2rem;
-    background: #0009;
-    gap: 2rem;
+  box-sizing: border-box;
+  padding: 2rem;
+  background: #0009;
 }
 
 #mdeditor {
-    margin-top: 2rem;
-    & > label {
-        font-size: 1.3em;
-    }
-}
-
-#test_buttons {
-  padding: 2rem 2rem 0;
-  & > button {
-    margin-left: auto;
-    padding: 1rem 4rem;
-  }
-  & > button:disabled {
-    opacity: 0.5;
-  }
-  & > button:hover:not(:disabled) {
-    transform: scale(1.05);
+  margin-top: 2rem;
+  & > label {
+    font-size: 1.3em;
   }
 }
 
-#submit_quest_button {
-  gap: 10rem;
+#quest_buttons {
+  display: flex;
+  gap: 2rem;
   padding: 2rem 0 0;
-  & > button {
+  & > button:first-child {
     margin-left: auto;
+  }
+  & > button {
     padding: 1rem 4rem;
   }
   & > button:disabled {
     opacity: 0.5;
   }
-  & > button:hover:not(:disabled) {
+  & > button:last-child:hover:not(:disabled) {
     transform: scale(1.05);
   }
 }
