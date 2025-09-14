@@ -1,0 +1,42 @@
+#quest_creation {
+    box-sizing: border-box;
+    padding: 2rem;
+    background: #0009;
+    gap: 2rem;
+}
+
+#mdeditor {
+    margin-top: 2rem;
+    & > label {
+        font-size: 1.3em;
+    }
+}
+
+#test_buttons {
+  padding: 2rem 2rem 0;
+  & > button {
+    margin-left: auto;
+    padding: 1rem 4rem;
+  }
+  & > button:disabled {
+    opacity: 0.5;
+  }
+  & > button:hover:not(:disabled) {
+    transform: scale(1.05);
+  }
+}
+
+#submit_quest_button {
+  gap: 10rem;
+  padding: 2rem 0 0;
+  & > button {
+    margin-left: auto;
+    padding: 1rem 4rem;
+  }
+  & > button:disabled {
+    opacity: 0.5;
+  }
+  & > button:hover:not(:disabled) {
+    transform: scale(1.05);
+  }
+}
