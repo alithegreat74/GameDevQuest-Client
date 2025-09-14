@@ -8,6 +8,7 @@ import "./lessons/lessons.css";
 import "./components/Footer.css";
 import "./components/Loader.css";
 import "./components/LessonCard.css";
+import "./quest-creation/quest-creation.css";
 import { AuthProvider } from "./components/AuthContext";
 
 const geistSans = Geist({
